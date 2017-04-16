@@ -1,17 +1,18 @@
-<div class="logo">
-    <a href="https://www.creative-tim.com" class="simple-text">
-        <div class="logo-img">
-            <img src="/assets/img/angular2-logo-red.png"/>
-        </div>
-        Creative Tim
-    </a>
+<div class="logo" style="height:100px;text-align:center;">
+    <div class="headerIcon">
+        <img style="height:inherit;" src="/assets/img/iconfinder-66-512.png" />
+    </div>
+    <div class="simple-text headerText">
+        <div>ST&amp;D</div>
+        <div style="font-size: 65%;">Smart Track &amp; Delivery</div>
+    </div>
 </div>
-<div class="sidebar-wrapper">
-    <div class="nav-container">
-        <ul class="nav">
-            <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
-                <a  [routerLink]="[menuItem.path]">
-                    <i class="material-icons">{{menuItem.icon}}</i>
+<div class="sidebar-wrapper ">
+    <div class="nav-container ">
+        <ul class="nav ">
+            <li *ngFor="let menuItem of menuItems " routerLinkActive="active " class="{{menuItem.class}} ">
+                <a [routerLink]="[menuItem.path] ">
+                    <i class="material-icons ">{{menuItem.icon}}</i>
                     <p>{{menuItem.title}}</p>
                 </a>
             </li>
