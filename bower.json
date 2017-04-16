@@ -1,0 +1,6 @@
+{
+  "name": "STD",
+  "dependencies": {
+    "material-kit": "~1.1.0"
+  }
+}
