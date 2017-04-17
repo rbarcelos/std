@@ -9,18 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var UpgradeComponent = (function () {
-    function UpgradeComponent() {
+var CadastroComponent = (function () {
+    function CadastroComponent() {
     }
-    UpgradeComponent = __decorate([
+    CadastroComponent = __decorate([
         core_1.Component({
-            selector: 'upgrade-cmp',
+            selector: 'cadastro-cmp',
             moduleId: module.id,
-            templateUrl: 'upgrade.component.html'
-        }), 
+            templateUrl: 'cadastro.component.html'
+        }),
         __metadata('design:paramtypes', [])
-    ], UpgradeComponent);
-    return UpgradeComponent;
+    ], CadastroComponent);
+    return CadastroComponent;
 }());
-exports.UpgradeComponent = UpgradeComponent;
-//# sourceMappingURL=upgrade.component.js.map
+exports.CadastroComponent = CadastroComponent;
+//# sourceMappingURL=cadastro.component.js.map
