@@ -38,7 +38,7 @@ my-app .main-panel .main-content .card {
     }
 }
 
-#map {
+.map {
     position: relative;
     width: 100%;
     height: calc(100% - 60px);
