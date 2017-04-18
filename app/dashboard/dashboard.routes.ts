@@ -8,6 +8,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { TypographyComponent } from './typography/typography.component';
 import { MapsComponent } from './maps/maps.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { NotasCadastroComponent } from './cadastro/notasCadastro.component';
 
 export const MODULE_ROUTES: Route[] =[
     { path: 'dashboard', component: HomeComponent },
@@ -29,5 +30,6 @@ export const MODULE_COMPONENTS = [
     NotificationsComponent,
     TypographyComponent,
     MapsComponent,
-    CadastroComponent
+    CadastroComponent,
+    NotasCadastroComponent,
 ]

@@ -7,6 +7,7 @@ var notifications_component_1 = require('./notifications/notifications.component
 var typography_component_1 = require('./typography/typography.component');
 var maps_component_1 = require('./maps/maps.component');
 var cadastro_component_1 = require('./cadastro/cadastro.component');
+var notasCadastro_component_1 = require('./cadastro/notasCadastro.component');
 exports.MODULE_ROUTES = [
     { path: 'dashboard', component: home_component_1.HomeComponent },
     { path: 'user', component: user_component_1.UserComponent },
@@ -26,6 +27,7 @@ exports.MODULE_COMPONENTS = [
     notifications_component_1.NotificationsComponent,
     typography_component_1.TypographyComponent,
     maps_component_1.MapsComponent,
-    cadastro_component_1.CadastroComponent
+    cadastro_component_1.CadastroComponent,
+    notasCadastro_component_1.NotasCadastroComponent,
 ];
 //# sourceMappingURL=dashboard.routes.js.map
