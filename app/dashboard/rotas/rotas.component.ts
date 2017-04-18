@@ -4,13 +4,13 @@ declare var google: any;
 
 @Component({
     moduleId: module.id,
-    selector: 'maps-cmp',
-    templateUrl: 'maps.component.html'
+    selector: 'rotas-cmp',
+    templateUrl: 'rotas.component.html'
 })
 
-export class MapsComponent implements OnInit {
+export class RotasComponent implements OnInit {
     ngOnInit() {
-        var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
+        var myLatlng = new google.maps.LatLng(-23.3045, -51.1696);
         var mapOptions = {
           zoom: 13,
           center: myLatlng,

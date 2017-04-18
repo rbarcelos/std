@@ -5,7 +5,7 @@ var icons_component_1 = require('./icons/icons.component');
 var table_component_1 = require('./table/table.component');
 var notifications_component_1 = require('./notifications/notifications.component');
 var typography_component_1 = require('./typography/typography.component');
-var maps_component_1 = require('./maps/maps.component');
+var rotas_component_1 = require('./rotas/rotas.component');
 var cadastro_component_1 = require('./cadastro/cadastro.component');
 var notasCadastro_component_1 = require('./cadastro/notasCadastro.component');
 exports.MODULE_ROUTES = [
@@ -15,7 +15,7 @@ exports.MODULE_ROUTES = [
     { path: 'icons', component: icons_component_1.IconsComponent },
     { path: 'notifications', component: notifications_component_1.NotificationsComponent },
     { path: 'typography', component: typography_component_1.TypographyComponent },
-    { path: 'maps', component: maps_component_1.MapsComponent },
+    { path: 'rotas', component: rotas_component_1.RotasComponent },
     { path: 'cadastro', component: cadastro_component_1.CadastroComponent },
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
@@ -26,7 +26,7 @@ exports.MODULE_COMPONENTS = [
     icons_component_1.IconsComponent,
     notifications_component_1.NotificationsComponent,
     typography_component_1.TypographyComponent,
-    maps_component_1.MapsComponent,
+    rotas_component_1.RotasComponent,
     cadastro_component_1.CadastroComponent,
     notasCadastro_component_1.NotasCadastroComponent,
 ];

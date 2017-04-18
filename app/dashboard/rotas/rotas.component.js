@@ -9,11 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var MapsComponent = (function () {
-    function MapsComponent() {
+var RotasComponent = (function () {
+    function RotasComponent() {
     }
-    MapsComponent.prototype.ngOnInit = function () {
-        var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
+    RotasComponent.prototype.ngOnInit = function () {
+        var myLatlng = new google.maps.LatLng(-23.3045, -51.1696);
         var mapOptions = {
             zoom: 13,
             center: myLatlng,
@@ -28,15 +28,15 @@ var MapsComponent = (function () {
         // To add the marker to the map, call setMap();
         marker.setMap(map);
     };
-    MapsComponent = __decorate([
+    RotasComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'maps-cmp',
-            templateUrl: 'maps.component.html'
+            selector: 'rotas-cmp',
+            templateUrl: 'rotas.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], MapsComponent);
-    return MapsComponent;
+    ], RotasComponent);
+    return RotasComponent;
 }());
-exports.MapsComponent = MapsComponent;
-//# sourceMappingURL=maps.component.js.map
+exports.RotasComponent = RotasComponent;
+//# sourceMappingURL=rotas.component.js.map

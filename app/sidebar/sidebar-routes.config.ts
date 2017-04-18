@@ -6,7 +6,7 @@ export const ROUTES: RouteInfo[] = [
     { path: 'table', title: 'Table List',  icon:'content_paste', class: '' },
     { path: 'typography', title: 'Typography',  icon:'library_books', class: '' },
     { path: 'icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-    { path: 'maps', title: 'Maps',  icon:'location_on', class: '' },
+    { path: 'rotas', title: 'Rotas',  icon:'map', class: '' },
     { path: 'notifications', title: 'Notifications',  icon:'notifications', class: '' },
     { path: 'cadastro', title: 'Cadastro',  icon:'my_library_add', class: '' },
 ];
