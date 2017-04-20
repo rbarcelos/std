@@ -1,12 +1,10 @@
 "use strict";
 exports.ROUTES = [
     { path: 'dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
-    { path: 'user', title: 'User Profile', icon: 'person', class: '' },
-    { path: 'table', title: 'Table List', icon: 'content_paste', class: '' },
-    { path: 'typography', title: 'Typography', icon: 'library_books', class: '' },
-    { path: 'icons', title: 'Icons', icon: 'bubble_chart', class: '' },
     { path: 'rotas', title: 'Rotas', icon: 'map', class: '' },
-    { path: 'notifications', title: 'Notifications', icon: 'notifications', class: '' },
+    { path: 'notas', title: 'Notas Fiscais', icon: 'receipt', class: '' },
     { path: 'cadastro', title: 'Cadastro', icon: 'my_library_add', class: '' },
+    { path: 'settings', title: 'Configurações', icon: 'settings', class: '' },
+    { path: 'icons', title: 'Icons', icon: 'bubble_chart', class: '' },
 ];
 //# sourceMappingURL=sidebar-routes.config.js.map

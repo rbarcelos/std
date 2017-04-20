@@ -5,10 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent }   from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FloatingButtonComponent } from './shared/FloatingButton/floatingButton.component';
+
 
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
+import { FloatingButtonModule } from './shared/FloatingButton/floatingButton.module';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
@@ -18,6 +21,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
         DashboardModule,
         SidebarModule,
         NavbarModule,
+        FloatingButtonModule,
         RouterModule.forRoot([])
     ],
     declarations: [ AppComponent, DashboardComponent ],

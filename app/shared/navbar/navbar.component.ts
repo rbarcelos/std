@@ -5,7 +5,7 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
 @Component({
     moduleId: module.id,
     selector: 'navbar-cmp',
-    templateUrl: 'navbar.component.html'
+    templateUrl: 'navbar.component.html'   
 })
 
 export class NavbarComponent implements OnInit{
@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit{
         this.location = location;
     }
     ngOnInit(){
-        this.listTitles = ROUTES.filter(listTitle => listTitle);
+              this.listTitles = ROUTES.filter(listTitle => listTitle);
     }
     getTitle(){
         var titlee = this.location.prepareExternalUrl(this.location.path());
