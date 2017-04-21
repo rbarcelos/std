@@ -7,6 +7,7 @@ import { TableComponent } from './table/table.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { TypographyComponent } from './typography/typography.component';
 import { RotasComponent } from './rotas/rotas.component';
+import { NotasComponent } from './notas/notas.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { NotasCadastroComponent } from './cadastro/notasCadastro.component';
 
@@ -18,6 +19,7 @@ export const MODULE_ROUTES: Route[] =[
     { path: 'notifications', component: NotificationsComponent },
     { path: 'typography', component: TypographyComponent },
     { path: 'rotas', component:RotasComponent },
+    { path: 'notas', component:NotasComponent },
     { path: 'cadastro', component: CadastroComponent },
     { path: '', redirectTo: 'rotas', pathMatch: 'full' }
 ]
@@ -30,6 +32,7 @@ export const MODULE_COMPONENTS = [
     NotificationsComponent,
     TypographyComponent,
     RotasComponent,
+    NotasComponent,
     CadastroComponent,
     NotasCadastroComponent,
 ]

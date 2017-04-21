@@ -25,7 +25,7 @@ var NotasCadastroComponent = (function () {
             moduleId: module.id,
             templateUrl: 'notasCadastro.component.html',
             encapsulation: core_1.ViewEncapsulation.Emulated,
-            styleUrls: ['http://fonts.googleapis.com/css?family=Roboto:400,100,300,500', 'assets/bootstrap/css/bootstrap.min.css', 'assets/font-awesome/css/font-awesome.min.css', 'assets/css/form-elements.css', 'assets/css/style.css'],
+            styleUrls: ['http://fonts.googleapis.com/css?family=Roboto:400,100,300,500', 'assets/bootstrap/css/bootstrap.min.css', 'assets/font-awesome/css/font-awesome.min.css', 'assets/css/form-elements.css', 'assets/css/style.css', 'assets/css/demo.css'],
         }), 
         __metadata('design:paramtypes', [])
     ], NotasCadastroComponent);
