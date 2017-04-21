@@ -27,10 +27,16 @@
                                 <td>Done</td>
                                 <td class="td-actions text-right">
                                     <button type="button" rel="tooltip" title="Trocar Operador" class="btn btn-primary btn-simple btn-xs">
+                                            <i class="material-icons">assignment_ind</i>
+                                        </button>
+                                    <button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-simple btn-xs">
                                             <i class="material-icons">edit</i>
                                         </button>
+                                    <button type="button" rel="tooltip" title="Cancelar" class="btn btn-warning btn-simple btn-xs">
+                                            <i class="material-icons">cancel</i>
+                                        </button>
                                     <button type="button" rel="tooltip" title="Excluir" class="btn btn-danger btn-simple btn-xs">
-                                            <i class="material-icons">close</i>
+                                            <i class="material-icons">delete</i>
                                         </button>
                                 </td>
                             </tr>
@@ -42,10 +48,16 @@
                                 <td>Done</td>
                                 <td class="td-actions text-right">
                                     <button type="button" rel="tooltip" title="Trocar Operador" class="btn btn-primary btn-simple btn-xs">
+                                            <i class="material-icons">assignment_ind</i>
+                                        </button>
+                                    <button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-simple btn-xs">
                                             <i class="material-icons">edit</i>
                                         </button>
+                                    <button type="button" rel="tooltip" title="Cancelar" class="btn btn-warning btn-simple btn-xs">
+                                            <i class="material-icons">cancel</i>
+                                        </button>
                                     <button type="button" rel="tooltip" title="Excluir" class="btn btn-danger btn-simple btn-xs">
-                                            <i class="material-icons">close</i>
+                                            <i class="material-icons">delete</i>
                                         </button>
                                 </td>
                             </tr>
@@ -57,10 +69,16 @@
                                 <td>Done</td>
                                 <td class="td-actions text-right">
                                     <button type="button" rel="tooltip" title="Trocar Operador" class="btn btn-primary btn-simple btn-xs">
+                                            <i class="material-icons">assignment_ind</i>
+                                        </button>
+                                    <button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-simple btn-xs">
                                             <i class="material-icons">edit</i>
                                         </button>
+                                    <button type="button" rel="tooltip" title="Cancelar" class="btn btn-warning btn-simple btn-xs">
+                                            <i class="material-icons">cancel</i>
+                                        </button>
                                     <button type="button" rel="tooltip" title="Excluir" class="btn btn-danger btn-simple btn-xs">
-                                            <i class="material-icons">close</i>
+                                            <i class="material-icons">delete</i>
                                         </button>
                                 </td>
                             </tr>
@@ -73,62 +91,93 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card card-nav-tabs">
                 <div class="card-header" data-background-color="primary">
-                    <h4 class="title">Entregas</h4>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <table class="table table-hover">
-                            <thead class="text-primary">
-                                <tr>
-                                    <th>#</th>
-                                    <th>Data</th>
-                                    <th>Destinatario</th>
-                                    <th>Estatus</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <a href="#profile">
-                                            <div style="content:url('http://maps.google.com/mapfiles/kml/paddle/A.png');width: 35px;"> </div>
-                                        </a>
-                                    </td>
-                                    <td>19/04/2017</td>
-                                    <td>ATACADÃO DISTR COM E IND LTDA</td>
-                                    <td>Done</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="#profile">
-                                            <div style="content:url('http://maps.google.com/mapfiles/kml/paddle/B.png');width: 35px;"> </div>
-                                        </a>
-                                    </td>
-                                    <td>19/04/2017</td>
-                                    <td>ATACADÃO DISTR COM E IND LTDA</td>
-                                    <td>Done</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="#profile">
-                                            <div style="content:url('http://maps.google.com/mapfiles/kml/paddle/C.png');width: 35px;"> </div>
-                                        </a>
-                                    </td>
-                                    <td>19/04/2017</td>
-                                    <td>ATACADÃO DISTR COM E IND LTDA</td>
-                                    <td>Done</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                            <ul class="nav nav-tabs" data-tabs="tabs">
+                                <li class="">
+                                    <a href="#entregaDetails" data-toggle="tab">
+                                        <i class="material-icons">storage</i> Detalhes da entrega
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="#tracking" data-toggle="tab">
+                                        <i class="material-icons">track_changes</i> Dados de Monitoramento
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <div id="rotasMap" class="card" style="min-height:600px;"></div>
-                    </div>
-
                 </div>
+                <div class="card-content">
+                    <div class="tab-content">
+                        <div class="tab-pane" id="entregaDetails">
+                            <div class="row">
 
+
+                            </div>
+                        </div>
+                        <div class="tab-pane active" id="tracking">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <table class="table table-hover">
+                                        <thead class="text-primary">
+                                            <tr>
+                                                <th></th>
+                                                <th>Data</th>
+                                                <th>Destino</th>
+                                                <th>Estatus</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a href="#profile">
+                                                        <div style="content:url('http://maps.google.com/mapfiles/kml/paddle/A.png');width: 35px;"> </div>
+                                                    </a>
+                                                </td>
+                                                <td>19/04/2017</td>
+                                                <td>ATACADÃO DISTR COM E IND LTDA</td>
+                                                <td>Done</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#profile">
+                                                        <div style="content:url('http://maps.google.com/mapfiles/kml/paddle/B.png');width: 35px;"> </div>
+                                                    </a>
+                                                </td>
+                                                <td>19/04/2017</td>
+                                                <td>ATACADÃO DISTR COM E IND LTDA</td>
+                                                <td>Done</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#profile">
+                                                        <div style="content:url('http://maps.google.com/mapfiles/kml/paddle/C.png');width: 35px;"> </div>
+                                                    </a>
+                                                </td>
+                                                <td>19/04/2017</td>
+                                                <td>ATACADÃO DISTR COM E IND LTDA</td>
+                                                <td>Done</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-8">
+                                    <div id="rotasMap" class="card" style="min-height:600px;"></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
         </div>
 
     </div>
+</div>
