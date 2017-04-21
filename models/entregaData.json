@@ -1,6 +1,8 @@
 {
     "id": "1",
     "dataInicio": "19/04/2017",
+    "descricao": "Pepsico 2074",
+    "emissor": "Rafael",
     "estatus": "Done",
     "operador": "Marlon",
     "entregas": [

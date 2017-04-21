@@ -19,7 +19,7 @@ export const MODULE_ROUTES: Route[] =[
     { path: 'typography', component: TypographyComponent },
     { path: 'rotas', component:RotasComponent },
     { path: 'cadastro', component: CadastroComponent },
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+    { path: '', redirectTo: 'rotas', pathMatch: 'full' }
 ]
 
 export const MODULE_COMPONENTS = [

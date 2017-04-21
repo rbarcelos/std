@@ -1,0 +1,37 @@
+@import "md/variables";
+@import '../css/typography.css';
+@import '../css/google-icons.css';
+@import '../css/button.css';
+@import '../css/floating-action-button.css';
+$color: $brand-primary;
+$base: 10px;
+$space: 2.5px;
+$transition: .5s;
+.fabButton {
+    padding: $base*2;
+    cursor: pointer;
+    transition: $transition;
+}
+
+.fabButton:active {
+    transform: scale(.9);
+    transition: 0;
+    opacity: .8;
+}
+
+.fabGrid {
+    width: $base;
+    height: $base;
+    background: $color;
+    color: $color;
+    box-shadow: -($base+$space) 0, -($base+$space) ($base+$space), $base+$space 0, ($base+$space) (-($base+$space)), 0 0 -($base+$space), -($base+$space) 0 -($base+$space), 0 ($base+$space), ($base+$space) ($base+$space);
+    transform: none;
+    transition: $transition;
+    border-radius: $space/2;
+}
+
+.fabX {
+    box-shadow: -$base 0, 0 0 transparent, $base 0, 0 0 transparent, 0 0 -$base, 0 0 transparent, 0 $base, 0 0 transparent;
+    border-radius: 0;
+    transform: rotate(45deg);
+}

@@ -17,7 +17,7 @@ exports.MODULE_ROUTES = [
     { path: 'typography', component: typography_component_1.TypographyComponent },
     { path: 'rotas', component: rotas_component_1.RotasComponent },
     { path: 'cadastro', component: cadastro_component_1.CadastroComponent },
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+    { path: '', redirectTo: 'rotas', pathMatch: 'full' }
 ];
 exports.MODULE_COMPONENTS = [
     home_component_1.HomeComponent,

@@ -1,0 +1,32 @@
+/* ANIMATION */
+/* SHADOWS */
+@import url(../css/typography.css);
+@import url(../css/google-icons.css);
+@import url(../css/button.css);
+@import url(../css/floating-action-button.css);
+.fabButton {
+  padding: 20px;
+  cursor: pointer;
+  transition: 0.5s; }
+
+.fabButton:active {
+  transform: scale(0.9);
+  transition: 0;
+  opacity: .8; }
+
+.fabGrid {
+  width: 10px;
+  height: 10px;
+  background: #7986cb;
+  color: #7986cb;
+  box-shadow: -12.5px 0, -12.5px 12.5px, 12.5px 0, 12.5px -12.5px, 0 -12.5px, -12.5px -12.5px, 0 12.5px, 12.5px 12.5px;
+  transform: none;
+  transition: 0.5s;
+  border-radius: 1.25px; }
+
+.fabX {
+  box-shadow: -10px 0, 0 0 transparent, 10px 0, 0 0 transparent, 0 -10px, 0 0 transparent, 0 10px, 0 0 transparent;
+  border-radius: 0;
+  transform: rotate(45deg); }
+
+/*# sourceMappingURL=fab.css.map */
