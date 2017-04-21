@@ -2845,9 +2845,9 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
   .nav-container {
     position: relative; } }
 .popover, .tooltip-inner {
-  color: #555555;
+  color: #e8eaf6;
   line-height: 1.5em;
-  background: #FFFFFF;
+  background: #5c6bc0;
   border: none;
   border-radius: 3px;
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); }
@@ -2885,13 +2885,13 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
   -ms-transform: translate3d(0, 5px, 0);
   transform: translate3d(0, 5px, 0); }
   .tooltip.left .tooltip-arrow {
-    border-left-color: #FFFFFF; }
+    border-left-color: #5c6bc0; }
   .tooltip.right .tooltip-arrow {
-    border-right-color: #FFFFFF; }
+    border-right-color: #5c6bc0; }
   .tooltip.top .tooltip-arrow {
-    border-top-color: #FFFFFF; }
+    border-top-color: #5c6bc0; }
   .tooltip.bottom .tooltip-arrow {
-    border-bottom-color: #FFFFFF; }
+    border-bottom-color: #5c6bc0; }
 
 .tooltip-inner {
   padding: 10px 15px;

@@ -21,6 +21,8 @@ $gray-color: #999999 !default;
 $brand-primary: $indigo-300 !default;
 $brand-primary-minor: $indigo-200 !default;
 $brand-primary-major: $indigo-400 !default;
+$brand-primary-light: $indigo-50 !default;
+$brand-primary-dark: $indigo-500 !default;
 $brand-success: $green !default;
 $brand-danger: $red !default;
 $brand-warning: $orange !default;
@@ -464,9 +466,9 @@ $state-danger-border: darken(adjust-hue($state-danger-bg, -10), 5%) !default;
 //** Tooltip max width
 $tooltip-max-width: 200px !default;
 //** Tooltip text color
-$tooltip-color: #fff !default;
+$tooltip-color: $brand-primary-light !default;
 //** Tooltip background color
-$tooltip-bg: #000 !default;
+$tooltip-bg: $brand-primary-major !default;
 $tooltip-opacity: .9 !default;
 //** Tooltip arrow width
 $tooltip-arrow-width: 5px !default;
@@ -476,13 +478,13 @@ $tooltip-arrow-color: $tooltip-bg !default;
 //
 //##
 //** Popover body background color
-$popover-bg: #fff !default;
+$popover-bg: $brand-primary-light !default;
 //** Popover maximum width
 $popover-max-width: 276px !default;
 //** Popover border color
 $popover-border-color: rgba(0, 0, 0, .2) !default;
 //** Popover fallback border color
-$popover-fallback-border-color: #ccc !default;
+$popover-fallback-border-color: $brand-primary-dark !default;
 //** Popover title background color
 $popover-title-bg: darken($popover-bg, 3%) !default;
 //** Popover arrow width
