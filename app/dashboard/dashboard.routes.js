@@ -1,14 +1,15 @@
 "use strict";
-var home_component_1 = require('./home/home.component');
-var user_component_1 = require('./user/user.component');
-var icons_component_1 = require('./icons/icons.component');
-var table_component_1 = require('./table/table.component');
-var notifications_component_1 = require('./notifications/notifications.component');
-var typography_component_1 = require('./typography/typography.component');
-var rotas_component_1 = require('./rotas/rotas.component');
-var notas_component_1 = require('./notas/notas.component');
-var cadastro_component_1 = require('./cadastro/cadastro.component');
-var notasCadastro_component_1 = require('./cadastro/notasCadastro.component');
+Object.defineProperty(exports, "__esModule", { value: true });
+var home_component_1 = require("./home/home.component");
+var user_component_1 = require("./user/user.component");
+var icons_component_1 = require("./icons/icons.component");
+var table_component_1 = require("./table/table.component");
+var notifications_component_1 = require("./notifications/notifications.component");
+var typography_component_1 = require("./typography/typography.component");
+var rotas_component_1 = require("./rotas/rotas.component");
+var notas_component_1 = require("./notas/notas.component");
+var cadastro_component_1 = require("./cadastro/cadastro.component");
+var notasCadastro_component_1 = require("./cadastro/notasCadastro.component");
 exports.MODULE_ROUTES = [
     { path: 'dashboard', component: home_component_1.HomeComponent },
     { path: 'user', component: user_component_1.UserComponent },

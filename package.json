@@ -5,7 +5,8 @@
         "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
         "lite": "lite-server",
         "tsc": "tsc",
-        "tsc:w": "tsc -w"
+        "tsc:w": "tsc -w",
+        "preinstall": "preinstall": "npm install tsc",
     },
     "engines": {
         "node": "6.10.2",

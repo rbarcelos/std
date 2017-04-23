@@ -5,17 +5,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var core_1 = require('@angular/core');
-var TaskManager_1 = require('../../shared/TaskManager');
-var RotasComponent = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var TaskManager_1 = require("../../shared/TaskManager");
+var RotasComponent = RotasComponent_1 = (function () {
     function RotasComponent() {
     }
     RotasComponent.prototype.ngOnInit = function () {
         this.map = this.initMap();
-        this.fetchRotaData(RotasComponent.generateMarkers, this.map);
+        this.fetchRotaData(RotasComponent_1.generateMarkers, this.map);
     };
     RotasComponent.prototype.fetchRotaData = function (callBack, map) {
         var jqxhr = $.ajax({
@@ -39,15 +37,15 @@ var RotasComponent = (function () {
     };
     RotasComponent.generateMarkers = function (map, rota) {
         var taskManager = new TaskManager_1.TaskManager();
-        var promise = taskManager.processTasks(rota.entregas, RotasComponent.retrieveLatLong);
+        var promise = taskManager.processTasks(rota.entregas, RotasComponent_1.retrieveLatLong);
         promise.then(function (result) {
             var latLongs = result;
             var markers = [];
             for (var index in rota.entregas) {
-                var m = RotasComponent.createMarker(map, rota.entregas[index], latLongs[index], index);
+                var m = RotasComponent_1.createMarker(map, rota.entregas[index], latLongs[index], index);
                 markers.push(m);
             }
-            RotasComponent.adjustMap(map, markers);
+            RotasComponent_1.adjustMap(map, markers);
         }, function (reason) {
             var t = reason;
         });
@@ -79,9 +77,9 @@ var RotasComponent = (function () {
     //    });
     //}
     RotasComponent.createMarker = function (map, entrega, latLong, index) {
-        var contentString = RotasComponent.calculateContentString(entrega);
-        var iconUrl = RotasComponent.calculateIconUrl(index);
-        return RotasComponent.instantiateMarker(map, latLong, iconUrl, entrega.destinatario, contentString);
+        var contentString = RotasComponent_1.calculateContentString(entrega);
+        var iconUrl = RotasComponent_1.calculateIconUrl(index);
+        return RotasComponent_1.instantiateMarker(map, latLong, iconUrl, entrega.destinatario, contentString);
     };
     RotasComponent.calculateContentString = function (entrega) {
         return '<div id="content">' +
@@ -107,7 +105,8 @@ var RotasComponent = (function () {
             icon: icon,
             map: map,
             flat: false,
-            title: title });
+            title: title
+        });
         var infowindow = new google.maps.InfoWindow({
             content: content
         });
@@ -123,15 +122,15 @@ var RotasComponent = (function () {
         }
         map.fitBounds(bounds);
     };
-    RotasComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'rotas-cmp',
-            templateUrl: 'rotas.component.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], RotasComponent);
     return RotasComponent;
 }());
+RotasComponent = RotasComponent_1 = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'rotas-cmp',
+        templateUrl: 'rotas.component.html'
+    })
+], RotasComponent);
 exports.RotasComponent = RotasComponent;
+var RotasComponent_1;
 //# sourceMappingURL=rotas.component.js.map
