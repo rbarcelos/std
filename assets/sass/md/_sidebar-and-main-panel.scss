@@ -241,6 +241,9 @@
     &[data-color="orange"]{
         @include set-background-color-button($brand-warning);
     }
+    &[data-color="primary"]{
+        @include set-background-color-button($brand-primary);
+    }
     &[data-color="red"]{
         @include set-background-color-button($brand-danger);
     }

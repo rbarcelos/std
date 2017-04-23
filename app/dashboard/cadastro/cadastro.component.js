@@ -17,7 +17,7 @@ var CadastroComponent = (function () {
             selector: 'cadastro-cmp',
             moduleId: module.id,
             templateUrl: 'cadastro.component.html'
-        }),
+        }), 
         __metadata('design:paramtypes', [])
     ], CadastroComponent);
     return CadastroComponent;

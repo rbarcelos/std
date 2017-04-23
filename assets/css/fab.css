@@ -1,0 +1,95 @@
+/* ANIMATION */
+/* SHADOWS */
+@import url(../css/typography.css);
+@import url(../css/google-icons.css);
+@import url(../css/button.css);
+@import url(../css/floating-action-button.css);
+.fabButton {
+  padding: 20px;
+  cursor: pointer;
+  transition: 0.5s; }
+
+.fabButton:active {
+  transform: scale(0.9);
+  transition: 0;
+  opacity: .8; }
+
+.fabGrid {
+  width: 10px;
+  height: 10px;
+  background: #7986cb;
+  color: #7986cb;
+  box-shadow: -12.5px 0, -12.5px 12.5px, 12.5px 0, 12.5px -12.5px, 0 -12.5px, -12.5px -12.5px, 0 12.5px, 12.5px 12.5px;
+  transform: none;
+  transition: 0.5s;
+  border-radius: 1.25px; }
+
+.fabX {
+  box-shadow: -10px 0, 0 0 transparent, 10px 0, 0 0 transparent, 0 -10px, 0 0 transparent, 0 10px, 0 0 transparent;
+  border-radius: 0;
+  transform: rotate(45deg); }
+
+.btn-primary,
+.dropdown-toggle.btn-primary {
+  background-color: #7986cb; }
+
+.btn-primary:hover,
+.dropdown-toggle.btn-primary:hover {
+  background-color: #5c6bc0; }
+
+.btn-primary:active,
+.dropdown-toggle.btn-primary:active,
+.btn-primary.active,
+.dropdown-toggle.btn-primary.active {
+  background-color: #5c6bc0; }
+
+.btn-primary:focus,
+.dropdown-toggle.btn-primary:focus {
+  background-color: #5c6bc0; }
+
+.btn-primary:disabled,
+.dropdown-toggle.btn-primary:disabled,
+.btn-primary.disabled,
+.dropdown-toggle.btn-primary.disabled,
+.btn-primary[disabled],
+.dropdown-toggle.btn-primary[disabled] {
+  background-color: #b3b3b3; }
+
+.btn-primary .ink,
+.dropdown-toggle.btn-primary .ink {
+  background-color: #7986cb; }
+
+/* -- Buttons primary flat --*/
+.pmd-btn-flat.btn-primary {
+  color: #9fa8da;
+  background-color: transparent; }
+
+.pmd-btn-flat.btn-primary:hover {
+  color: #7986cb;
+  background-color: #e5e5e5; }
+
+.pmd-btn-flat.btn-primary:active,
+.pmd-btn-flat.btn-primary.active {
+  color: #7986cb;
+  background-color: #cccccc; }
+
+.pmd-btn-flat.btn-primary:focus {
+  color: #5c6bc0;
+  background-color: #cccccc; }
+
+.pmd-btn-flat.btn-primary .ink {
+  background-color: #808080; }
+
+/* -- Buttons primary outline --*/
+.pmd-btn-outline.btn-primary {
+  border: solid 1px #9fa8da;
+  background-color: transparent;
+  color: #7986cb; }
+
+.pmd-btn-outline.btn-primary:hover,
+.pmd-btn-outline.btn-primary:focus {
+  border: solid 1px #7986cb;
+  background-color: #7986cb;
+  color: #fff; }
+
+/*# sourceMappingURL=fab.css.map */
