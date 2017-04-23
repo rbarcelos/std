@@ -1,20 +1,23 @@
 {
-  "name": "material-dashboard-angular2",
-  "version": "1.2.0",
-  "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
-    "lite": "lite-server",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w"
-  },
-  "license":"MIT",
-  "repository": {
-      "type": "git",
-      "url": "https://github.com/creativetimofficial/material-dashboard-angular.git"
-  },
-  "bugs":{
-      "url": "https://github.com/creativetimofficial/material-dashboard-angular/issues"
-  },
+    "name": "STD",
+    "version": "0.1-proto",
+    "scripts": {
+        "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+        "lite": "lite-server",
+        "tsc": "tsc",
+        "tsc:w": "tsc -w"
+    },
+    "engines": {
+        "node": "6.10.2"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/creativetimofficial/material-dashboard-angular.git"
+    },
+    "bugs": {
+        "url": "https://github.com/creativetimofficial/material-dashboard-angular/issues"
+    },
     "dependencies": {
         "@angular/common": "~2.4.9",
         "@angular/compiler": "~2.4.9",
@@ -36,14 +39,14 @@
         "rxjs": "5.0.1",
         "systemjs": "~0.19.41",
         "zone.js": "^0.7.2"
-  },
-  "devDependencies": {
-    "@types/chartist": "~0.9.33",
-    "@types/core-js": "~0.9.34",
-    "@types/jquery": "~2.0.34",
-    "@types/node": "~6.0.45",
-    "concurrently": "~3.0.0",
-    "lite-server": "~2.2.2",
-    "typescript": "~2.0.3"
-  }
+    },
+    "devDependencies": {
+        "@types/chartist": "~0.9.33",
+        "@types/core-js": "~0.9.34",
+        "@types/jquery": "~2.0.34",
+        "@types/node": "~6.0.45",
+        "concurrently": "~3.0.0",
+        "lite-server": "~2.2.2",
+        "typescript": "~2.0.3"
+    }
 }
