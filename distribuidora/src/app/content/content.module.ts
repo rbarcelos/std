@@ -14,8 +14,6 @@ import { MomentModule } from 'angular2-moment';
 import { NfeCardComponent } from './nfe-card/nfe-card.component';
 
 import { WizardModule } from './cadastro/wizard/wizard.module';
-// import { WizardComponent }   from "./cadastro/wizard/wizard.component";
-// import { appStates }          from "./cadastro/wizard/app.states";
 import { CadastroComponent } from './cadastro/cadastro.component';
 
 @NgModule({

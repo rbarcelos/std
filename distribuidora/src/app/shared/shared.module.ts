@@ -5,8 +5,9 @@ import { AgmCoreModule } from '@agm/core';
 @NgModule({
   imports: [
     CommonModule,
-      AgmCoreModule
+    AgmCoreModule
   ],
-  declarations: []
+  declarations: [],
+  exports: []
 })
 export class SharedModule { }

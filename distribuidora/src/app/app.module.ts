@@ -23,15 +23,15 @@ import { ContentComponent } from './content/content.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-      SharedModule,
-      ContentModule,
-      // FabModule,
-      NavbarModule,
-      SidebarModule,
-      AgmCoreModule.forRoot({apiKey: 'AIzaSyBJHoiEGfmO9sVBI_3iJbNTW4Qc_dxdnyk', region:'BR',language:'pt-BR', libraries: ['places']}),
-      RouterModule.forRoot([])
+    SharedModule,
+    ContentModule,
+    // FabModule,
+    NavbarModule,
+    SidebarModule,
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyBJHoiEGfmO9sVBI_3iJbNTW4Qc_dxdnyk', region: 'BR', language: 'pt-BR', libraries: ['places'] }),
+    RouterModule.forRoot([])
   ],
-    providers: [],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
