@@ -18,15 +18,6 @@ export const LOCK_CONFIG =
             title: "Smart Tracking & Delivery",
         },
         autoclose: true,
-        auth: {
-            redirectUrl: AUTH_CONFIG.callbackURL,
-            responseType: 'token id_token',
-            audience: `https://${AUTH_CONFIG.domain}/userinfo`,
-            params: {
-                scope: 'openid'
-            }
-        },
-        autofocus: true,
         language: 'pt-BR',
         rememberLastLogin: true,
         theme: {
@@ -34,7 +25,7 @@ export const LOCK_CONFIG =
             primaryColor: '#7986cb'
         },
         additionalSignUpFields: [{
-            type: "select",
+            // type: 'select',
             name: "empresa",
             placeholder: "Selecione sua empresa",
             options: [
