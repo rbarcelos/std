@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   constructor(public authService: AuthService) {
-    this.authService.handleAuthentication();
+    this.authService.enableAuthentication();
   }
 
   ngOnInit(): void {

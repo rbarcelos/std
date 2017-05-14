@@ -1,7 +1,6 @@
 <nav class="navbar navbar-transparent navbar-absolute">
   <div class="container-fluid">
     <div class="navbar-header">
-      <!--<a class="navbar-brand" href="#">{{getTitle()}}</a>-->
       <button type="button" class="navbar-toggle" data-toggle="collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -39,13 +38,12 @@
             <p class="hidden-lg hidden-md">Perfil</p>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Editar perfil</a></li>
-            <li><a href="#">Logout</a></li>
+            <li *ngIf="authService.isAuthenticated()"><a href="#">Editar perfil</a></li>
+            <li *ngIf="authService.isAuthenticated()"><a href="#" (click)="authService.logout()">Logout</a></li>
+            <li *ngIf="!authService.isAuthenticated()"><a href="#" (click)="authService.login()">Login</a></li>
           </ul>
         </li>
       </ul>
-      <button class="btn btn-primary btn-margin" (click)="authService.login()" *ngIf="!authService.isAuthenticated()">Log In</button>
-      <button class="btn btn-primary btn-margin" (click)="authService.logout()" *ngIf="authService.isAuthenticated()">Log Out</button>
 
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group form-black is-empty">

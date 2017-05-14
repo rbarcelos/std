@@ -5,7 +5,7 @@ import { AuthService } from '../shared/services/auth.service'
     moduleId: module.id,
     selector: 'navbar-cmp',
     templateUrl: 'navbar.component.html',
-    providers: [AuthService]
+    providers: []
 })
 
 export class NavbarComponent {

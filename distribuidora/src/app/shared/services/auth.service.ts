@@ -9,10 +9,13 @@ import { tokenNotExpired } from 'angular2-jwt';
 @Injectable()
 export class AuthService {
 
-  lock = new Auth0Lock(AUTH_CONFIG.clientID, AUTH_CONFIG.domain, LOCK_CONFIG);
-  userProfile = JSON.parse(localStorage.getItem('profile'));
+  lock: any;
+  userProfile: string;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router) {
+    this.lock = new Auth0Lock(AUTH_CONFIG.clientID, AUTH_CONFIG.domain, LOCK_CONFIG);
+    this.userProfile = JSON.parse(localStorage.getItem('profile'));
+  }
 
   public login(): void {
     if (!this.isAuthenticated()) {
@@ -22,7 +25,7 @@ export class AuthService {
 
   // Call this method in app.component
   // if using path-based routing
-  public handleAuthentication(): void {
+  public enableAuthentication(): void {
     this.lock.on('authenticated', (authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
