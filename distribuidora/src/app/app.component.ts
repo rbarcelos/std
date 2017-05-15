@@ -1,15 +1,15 @@
-import { AuthService } from './shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { AuthFirebaseService } from "app/shared/services/authFirebase.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [AuthService]
+  providers: [AuthFirebaseService]
 })
 export class AppComponent implements OnInit {
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthFirebaseService) {
     this.authService.enableAuthentication();
   }
 

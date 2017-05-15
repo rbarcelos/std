@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AUTH_CONFIG, LOCK_CONFIG } from './auth-config';
 import { Router, NavigationStart } from '@angular/router';
+import { IAuthService } from './iauth-service';
 import 'rxjs/add/operator/filter';
 import Auth0Lock from 'auth0-lock';
 
 import { tokenNotExpired } from 'angular2-jwt';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements IAuthService {
 
   lock: any;
   userProfile: string;

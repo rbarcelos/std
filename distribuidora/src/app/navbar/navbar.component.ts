@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../shared/services/auth.service'
+import { AuthFirebaseService } from "app/shared/services/authFirebase.service";
+
 
 @Component({
     moduleId: module.id,
@@ -9,7 +10,7 @@ import { AuthService } from '../shared/services/auth.service'
 })
 
 export class NavbarComponent {
-    constructor(public authService: AuthService) { }
+    constructor(public authService: AuthFirebaseService) { }
 
 
 }

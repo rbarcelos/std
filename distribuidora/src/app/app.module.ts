@@ -1,3 +1,4 @@
+import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -11,10 +12,13 @@ import { ContentModule } from './content/content.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
 
 import { ContentComponent } from './content/content.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { AngularFireAuthModule, AngularFireAuth } from "angularfire2/auth";
 
 @NgModule({
   declarations: [
@@ -31,9 +35,12 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     NavbarModule,
     SidebarModule,
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBJHoiEGfmO9sVBI_3iJbNTW4Qc_dxdnyk', region: 'BR', language: 'pt-BR', libraries: ['places'] }),
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    AngularFireModule.initializeApp(environment.firebase, "STD"),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, AngularFireAuth, AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
