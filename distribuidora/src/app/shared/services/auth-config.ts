@@ -13,11 +13,9 @@ export const AUTH_CONFIG: AuthConfig = {
 export const LOCK_CONFIG =
     {
         allowedConnections: ['Username-Password-Authentication'],
-        // oidcConformant: true,
         languageDictionary: {
             title: "Smart Tracking & Delivery",
         },
-        autoclose: false,
         language: 'pt-BR',
         rememberLastLogin: false,
         theme: {
@@ -26,7 +24,6 @@ export const LOCK_CONFIG =
         },
         additionalSignUpFields: [
             {
-                // type: 'select',
                 name: "full_name",
                 placeholder: "Entre seu nome",
                 icon: '../assets/img/name.svg',
@@ -38,12 +35,12 @@ export const LOCK_CONFIG =
                 }
             },
             {
-                // type: 'select',
+                type: 'select',
                 name: "empresa",
                 placeholder: "Selecione sua empresa",
                 options: [
-                    { value: "pepsicobr", label: "PepsiCo | Brasil" },
-                    { value: "verdeFrota", label: "Verde Frota" }
+                    { value: "{\"id\": \"6470683d-0ea2-4786-9efe-a76578a9c419\", \"name\": \"pepsico | br\",\"type\": \"distribuidora\"}", label: "PepsiCo | Brasil" },
+                    { value: "{\"id\": \"ce9cea1e-c3f3-4c0c-8f1d-87707e70791d\", \"name\": \"verde frota\",\"type\": \"transportadora\"}", label: "Verde Frota" }
                 ],
                 prefill: '{\"id\": \"6470683d-0ea2-4786-9efe-a76578a9c419\", \"name\": \"pepsico | br\",\"type\": \"distribuidora\"}',
                 icon: '../assets/img/iconfinder-45-16.png'
