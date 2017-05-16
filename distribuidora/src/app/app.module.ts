@@ -1,4 +1,3 @@
-import { DistribuidoraGuard } from './shared/services/distribuidora.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -16,7 +15,6 @@ import { RouterModule } from '@angular/router';
 import { ContentComponent } from './content/content.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { AuthService } from "app/shared/services/auth.service";
 
 @NgModule({
   declarations: [

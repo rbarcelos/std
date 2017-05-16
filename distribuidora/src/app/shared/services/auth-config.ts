@@ -13,51 +13,37 @@ export const AUTH_CONFIG: AuthConfig = {
 export const LOCK_CONFIG =
     {
         allowedConnections: ['Username-Password-Authentication'],
-        // oidcConformant: true,
+        oidcConformant: true,
         languageDictionary: {
             title: "Smart Tracking & Delivery",
         },
-        autoclose: false,
+        autoclose: true,
         language: 'pt-BR',
-        rememberLastLogin: false,
+        rememberLastLogin: true,
         theme: {
             logo: '../assets/img/iconfinder-65-512.png',
             primaryColor: '#7986cb'
         },
-        additionalSignUpFields: [
-            {
-                // type: 'select',
-                name: "full_name",
-                placeholder: "Entre seu nome",
-                icon: '../assets/img/name.svg',
-                validator: function (name) {
-                    return {
-                        valid: name.length >= 3,
-                        hint: "Deve ter no minimo 3 letras"
-                    }
-                }
-            },
-            {
-                // type: 'select',
-                name: "empresa",
-                placeholder: "Selecione sua empresa",
-                options: [
-                    { value: "pepsicobr", label: "PepsiCo | Brasil" },
-                    { value: "verdeFrota", label: "Verde Frota" }
-                ],
-                prefill: '{\"id\": \"6470683d-0ea2-4786-9efe-a76578a9c419\", \"name\": \"pepsico | br\",\"type\": \"distribuidora\"}',
-                icon: '../assets/img/iconfinder-45-16.png'
-
-                // options: function(cb) {
-                //   // obtain options, in case of error you call cb with the error in the
-                //   // first arg instead of null
-                //   cb(null, options);
-                // },
-                // prefill: function(cb) {
-                //   // obtain prefill, in case of error you call cb with the error in the
-                //   // first arg instead of null
-                //   cb(null, prefill);
-                // }
-            }]
+        additionalSignUpFields: [{
+            // type: 'select',
+            name: "empresa",
+            placeholder: "Selecione sua empresa",
+            options: [
+                { value: "pepsicobr", label: "PepsiCo | Brasil" },
+                { value: "verdeFrota", label: "Verde Frota" }
+            ],
+            prefill: 'verdeFrota',
+            icon: '../assets/img/iconfinder-45-16.png'
+            // options: function(cb) {
+            //   // obtain options, in case of error you call cb with the error in the
+            //   // first arg instead of null
+            //   cb(null, options);
+            // },
+            // prefill: function(cb) {
+            //   // obtain prefill, in case of error you call cb with the error in the
+            //   // first arg instead of null
+            //   cb(null, prefill);
+            // }
+        }]
 
     }
