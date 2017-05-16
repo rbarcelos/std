@@ -18,6 +18,7 @@ export const MODULE_ROUTES: Routes = [
     { path: '', redirectTo: 'rotas', pathMatch: 'full' }
 ]
 
+
 export const MODULE_COMPONENTS = [
     HomeComponent,
     UserComponent,

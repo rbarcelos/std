@@ -37,7 +37,7 @@ export class RotasComponent implements OnInit {
     
   loadRota()
     {
-        this.dataService.getData().subscribe(
+        this.dataService.retriveRotas().subscribe(
             result => {
                 // needs to run inside zone to update the map
                 this.ngZone.run(() => {
