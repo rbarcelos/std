@@ -10,7 +10,7 @@ export const AUTH_CONFIG: AuthConfig = {
     callbackURL: 'http://localhost:4200/callback'
 };
 
-export const LOCK_CONFIG: Auth0LockConstructorOptions  =
+export const LOCK_CONFIG: Auth0LockConstructorOptions =
     {
         allowedConnections: ['Username-Password-Authentication'],
         languageDictionary: {
@@ -43,7 +43,7 @@ export const LOCK_CONFIG: Auth0LockConstructorOptions  =
                     { value: "{\"id\": \"ce9cea1e-c3f3-4c0c-8f1d-87707e70791d\", \"name\": \"verde frota\",\"type\": \"transportadora\"}", label: "Verde Frota" }
                 ],
                 prefill: '{\"id\": \"6470683d-0ea2-4786-9efe-a76578a9c419\", \"name\": \"pepsico | br\",\"type\": \"distribuidora\"}',
-                icon: '../assets/img/iconfinder-45-16.png'
+                icon: '../assets/img/office.svg'
 
                 // options: function(cb) {
                 //   // obtain options, in case of error you call cb with the error in the
