@@ -10,7 +10,7 @@ export const AUTH_CONFIG: AuthConfig = {
     callbackURL: 'http://localhost:4200/callback'
 };
 
-export const LOCK_CONFIG =
+export const LOCK_CONFIG: Auth0LockConstructorOptions  =
     {
         allowedConnections: ['Username-Password-Authentication'],
         languageDictionary: {
