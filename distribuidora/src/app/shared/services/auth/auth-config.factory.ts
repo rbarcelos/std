@@ -1,11 +1,12 @@
-import { isThisParameter } from 'tsutils/src';
+import { TitleCasePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { DataService } from '../data.service';
+import { Observable } from "rxjs/Rx";
+import { Empresa } from "app/shared/models/empresa";
 
 interface AuthConfig {
     clientID: string;
     domain: string;
-    callbackURL: string;
 }
 
 
@@ -16,8 +17,7 @@ export class AuthConfigFactory {
     public createAuthConfig(): AuthConfig {
         var config: AuthConfig = {
             clientID: 'tLJWb7k7Yg4ieRWgf3ScvO3n7dQI7hzR',
-            domain: 'std.auth0.com',
-            callbackURL: 'http://localhost:4200/callback'
+            domain: 'std.auth0.com'
         };
 
         return config;
@@ -62,14 +62,23 @@ export class AuthConfigFactory {
     }
 
     private getEmpresas(callback) {
-        this.dataService.retrieveEmpresas().subscribe(
+        this.dataService.retrieveEmpresas()
+            .subscribe(
             result => {
-                var options = [
-                    { value: "{\"id\": \"6470683d-0ea2-4786-9efe-a76578a9c419\", \"name\": \"pepsico | br\",\"type\": \"distribuidora\"}", label: "PepsiCo | Brasil" },
-                    { value: "{\"id\": \"ce9cea1e-c3f3-4c0c-8f1d-87707e70791d\", \"name\": \"verde frota\",\"type\": \"transportadora\"}", label: "Verde Frota" }
-                ];
-                callback(null, options);
+                callback(null, this.toOptions(result));
             });
+    }
+
+    private toOptions(empresas: Empresa[]): Auth0LockAdditionalSignUpFieldOption[] {
+        let options: Auth0LockAdditionalSignUpFieldOption[];
+
+        let titleCase = new TitleCasePipe();
+
+        options = empresas.map((empresa) => {
+            return { value: JSON.stringify(empresa), label: titleCase.transform(empresa.name) };
+        });
+
+        return options;
     }
 }
 

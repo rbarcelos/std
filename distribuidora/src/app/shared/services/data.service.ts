@@ -1,4 +1,3 @@
-import { forEach } from '@angular/router/src/utils/collection';
 import { Injectable } from '@angular/core';
 import { Rota } from '../models/rota';
 import { Empresa } from '../models/empresa';
@@ -17,17 +16,10 @@ export class DataService {
             .catch(this.handleError);
     }
 
-    retrieveEmpresas(): Observable<Collections.Dictionary<string, Empresa>> {
+    retrieveEmpresas(): Observable<Empresa[]> {
         return this.http.get("assets/data/empresas.json")
             .map(this.extractData)
-            .catch(this.handleError)
-            .map(this.toDictionary);
-    }
-
-    private toDictionary(empresas: Observable<Empresa[]>): Collections.Dictionary<string, Empresa> {
-        var dict = new Collections.Dictionary<string, Empresa>();
-
-        return dict;
+            .catch(this.handleError);
     }
 
     private extractData(res: Response) {
