@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
 import { ContentComponent } from './content/content.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { AuthService } from "app/shared/services/auth.service";
+import { AuthService } from "app/shared/services/auth/auth.service";
 
 @NgModule({
   declarations: [

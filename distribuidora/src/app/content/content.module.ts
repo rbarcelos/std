@@ -1,3 +1,4 @@
+import { AuthService } from '../shared/services/auth/auth.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -25,6 +26,6 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     RouterModule.forChild(MODULE_ROUTES)
   ],
   declarations: [RotasComponent, MapaComponent, InfoWindowContentComponent, MODULE_COMPONENTS, NfeCardComponent, CadastroComponent],
-  exports: [RotasComponent]
+  exports: [RotasComponent],
 })
 export class ContentModule { }

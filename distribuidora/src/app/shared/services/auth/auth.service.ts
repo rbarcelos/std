@@ -1,6 +1,5 @@
-import { EmpresaType } from '../models/empresa-type.enum';
 import { Injectable } from '@angular/core';
-import { AUTH_CONFIG, LOCK_CONFIG } from './auth-config';
+import { AuthConfigFactory } from './auth-config.factory';
 import { Router, NavigationStart } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import Auth0Lock from 'auth0-lock';
@@ -15,8 +14,12 @@ export class AuthService {
   lock: any;
   userProfile: Profile;
 
-  constructor(public router: Router) {
-    this.lock = new Auth0Lock(AUTH_CONFIG.clientID, AUTH_CONFIG.domain, LOCK_CONFIG);
+  constructor(public router: Router, private configFactory: AuthConfigFactory) {
+
+    var authConfig = this.configFactory.createAuthConfig();
+    var lockConfig = this.configFactory.createLockConfig();
+
+    this.lock = new Auth0Lock(authConfig.clientID, authConfig.domain, lockConfig);
     this.userProfile = JSON.parse(localStorage.getItem('profile'));
   }
 

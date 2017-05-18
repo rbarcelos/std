@@ -1,24 +1,33 @@
+import { forEach } from '@angular/router/src/utils/collection';
 import { Injectable } from '@angular/core';
 import { Rota } from '../models/rota';
 import { Empresa } from '../models/empresa';
 import { Http, Response } from '@angular/http';
 import { Observable, Observer } from 'rxjs';
 
+import * as Collections from 'typescript-collections';
+
 @Injectable()
 export class DataService {
-
     constructor(private http: Http) { }
 
-    retriveRotas(): Observable<Rota> {
+    retrieveRotas(): Observable<Rota> {
         return this.http.get("assets/data/rotas.json")
             .map(this.extractData)
             .catch(this.handleError);
     }
 
-    retriveEmpresas(): Observable<Empresa> {
+    retrieveEmpresas(): Observable<Collections.Dictionary<string, Empresa>> {
         return this.http.get("assets/data/empresas.json")
             .map(this.extractData)
-            .catch(this.handleError);
+            .catch(this.handleError)
+            .map(this.toDictionary);
+    }
+
+    private toDictionary(empresas: Observable<Empresa[]>): Collections.Dictionary<string, Empresa> {
+        var dict = new Collections.Dictionary<string, Empresa>();
+
+        return dict;
     }
 
     private extractData(res: Response) {
