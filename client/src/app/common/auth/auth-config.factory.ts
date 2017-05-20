@@ -1,8 +1,8 @@
 import { TitleCasePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { DataService } from '../data.service';
+import { DataService } from '../services/data.service';
 import { Observable } from "rxjs/Rx";
-import { Empresa } from "app/shared/models/empresa";
+import { Empresa } from "../models/empresa";
 
 interface AuthConfig {
     clientID: string;
@@ -26,6 +26,7 @@ export class AuthConfigFactory {
     public createLockConfig(): Auth0LockConstructorOptions {
         var config: Auth0LockConstructorOptions =
             {
+                container: 'root',
                 allowedConnections: ['Username-Password-Authentication'],
                 languageDictionary: {
                     title: "Smart Tracking & Delivery",

@@ -1,4 +1,4 @@
-import { EmpresaType } from "app/shared/models/empresa-type.enum";
+import { EmpresaType } from "./empresa-type.enum";
 
 export class Empresa {
 

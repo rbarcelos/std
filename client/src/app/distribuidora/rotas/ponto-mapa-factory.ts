@@ -1,4 +1,4 @@
-import { Entrega } from '../../shared/models/entrega';
+import { Entrega } from '../../common/models/entrega';
 import { PontoMapa } from '../mapa/ponto-mapa';
 import { PontoMapaContent } from '../mapa/ponto-mapa-content';
 

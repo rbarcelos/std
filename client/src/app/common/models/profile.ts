@@ -1,4 +1,4 @@
-import { Empresa } from "app/shared/models/empresa";
+import { Empresa } from "./empresa";
 export class Profile {
     public name: string;
     public email: string;

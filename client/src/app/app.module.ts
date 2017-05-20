@@ -6,32 +6,32 @@ import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
-import { ContentModule } from './content/content.module';
+import { StdCommonModule } from './common/common.module';
+// import { ContentModule } from './content/content.module';
 // import { FabModule } from './fab/fab.module';
-import { NavbarModule } from './navbar/navbar.module';
-import { SidebarModule } from './sidebar/sidebar.module';
+// import { NavbarModule } from './navbar/navbar.module';
+// import { SidebarModule } from './sidebar/sidebar.module';
 import { RouterModule } from '@angular/router';
 
-import { ContentComponent } from './content/content.component';
+// import { ContentComponent } from './content/content.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { AuthService } from "app/shared/services/auth/auth.service";
+import { AuthService } from "./common/auth/auth.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContentComponent
+    // ContentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    SharedModule,
-    ContentModule,
+    StdCommonModule,
+    // ContentModule,
     // FabModule,
-    NavbarModule,
-    SidebarModule,
+    // NavbarModule,
+    // SidebarModule,
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBJHoiEGfmO9sVBI_3iJbNTW4Qc_dxdnyk', region: 'BR', language: 'pt-BR', libraries: ['places'] }),
     RouterModule.forRoot([])
   ],

@@ -1,10 +1,10 @@
 import { Component, OnInit, NgZone, } from '@angular/core';
-import { DataService } from '../../shared/services/data.service';
-import { MapService } from '../../shared/services/map.service';
-import { TaskManagerService } from '../../shared/services/task-manager.service';
-import { Rota } from '../../shared/models/rota';
-import { Address } from '../../shared/models/address';
-import { Entrega } from '../../shared/models/entrega';
+import { DataService } from '../../common/services/data.service';
+import { MapService } from '../../common/services/map.service';
+import { TaskManagerService } from '../../common/services/task-manager.service';
+import { Rota } from '../../common/models/rota';
+import { Address } from '../../common/models/address';
+import { Entrega } from '../../common/models/entrega';
 import { PontoMapaFactory } from './ponto-mapa-factory';
 import { MapaComponent } from '../mapa/mapa.component';
 import { PontoMapa } from '../mapa/ponto-mapa';

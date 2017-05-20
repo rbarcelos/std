@@ -2,7 +2,7 @@ import { Injectable, NgZone, OnInit } from '@angular/core';
 import { GoogleMapsAPIWrapper ,MapsAPILoader} from '@agm/core';
 import { Observable, Observer } from 'rxjs';
 
-import { Entrega } from '../../shared/models/entrega';
+import { Entrega } from '../models/entrega';
 
 declare var google: any;
 

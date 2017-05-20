@@ -10,4 +10,4 @@ import { AgmCoreModule } from '@agm/core';
   declarations: [],
   exports: []
 })
-export class SharedModule { }
+export class StdCommonModule { }

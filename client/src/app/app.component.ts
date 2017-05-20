@@ -1,8 +1,8 @@
-import { ProfileManager } from './shared/models/profile.manager';
-import { AuthService } from './shared/services/auth/auth.service';
+import { ProfileManager } from './common/models/profile.manager';
+import { AuthService } from './common/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { AuthConfigFactory } from "./shared/services/auth/auth-config.factory";
-import { DataService } from "./shared/services/data.service";
+import { AuthConfigFactory } from "./common/auth/auth-config.factory";
+import { DataService } from "./common/services/data.service";
 
 @Component({
   selector: 'app-root',

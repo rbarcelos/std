@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone, Input, Output, EventEmitter, DoCheck, IterableDiffers,IterableDiffer } from '@angular/core';
-import { DataService } from '../../shared/services/data.service';
-import { MapService } from '../../shared/services/map.service';
-import { TaskManagerService } from '../../shared/services/task-manager.service';
+import { DataService } from '../../common/services/data.service';
+import { MapService } from '../../common/services/map.service';
+import { TaskManagerService } from '../../common/services/task-manager.service';
 import { PontoMapa } from './ponto-mapa';
 import { GoogleMapsAPIWrapper ,MapsAPILoader} from '@agm/core';
 import { Observable, Observer } from 'rxjs';

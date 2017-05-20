@@ -1,4 +1,4 @@
-import { ProfileManager } from '../../models/profile.manager';
+import { ProfileManager } from '../models/profile.manager';
 import { Injectable } from '@angular/core';
 import { AuthConfigFactory } from './auth-config.factory';
 import { Router, NavigationStart } from '@angular/router';
@@ -6,8 +6,8 @@ import 'rxjs/add/operator/filter';
 import Auth0Lock from 'auth0-lock';
 
 import { tokenNotExpired } from 'angular2-jwt';
-import { Profile } from "app/shared/models/profile";
-import { Empresa } from "app/shared/models/empresa";
+import { Profile } from "../models/profile";
+import { Empresa } from "../models/empresa";
 
 @Injectable()
 export class AuthService {
@@ -26,9 +26,9 @@ export class AuthService {
   }
 
   public login(): void {
-    if (!this.isAuthenticated()) {
-      this.lock.show();
-    }
+    // if (!this.isAuthenticated()) {
+    this.lock.show();
+    // }
   }
 
   // Call this method in app.component

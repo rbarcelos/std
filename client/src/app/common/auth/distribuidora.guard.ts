@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { AuthService } from "./auth.service";
-import { EmpresaType } from "app/shared/models/empresa-type.enum";
+import { EmpresaType } from "../models/empresa-type.enum";
 
 @Injectable()
 export class DistribuidoraGuard implements CanActivate {

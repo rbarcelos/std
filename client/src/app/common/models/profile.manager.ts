@@ -3,7 +3,7 @@ import { TitleCasePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Observable } from "rxjs/Rx";
-import { Empresa } from "app/shared/models/empresa";
+import { Empresa } from "./empresa";
 import { Auth0UserProfile } from "@types/auth0-js";
 
 
