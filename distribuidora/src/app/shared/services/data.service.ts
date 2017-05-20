@@ -8,6 +8,9 @@ import * as Collections from 'typescript-collections';
 
 @Injectable()
 export class DataService {
+
+    private cachedEmpresas: Observable<Empresa[]>;
+
     constructor(private http: Http) { }
 
     retrieveRotas(): Observable<Rota> {
@@ -17,9 +20,13 @@ export class DataService {
     }
 
     retrieveEmpresas(): Observable<Empresa[]> {
-        return this.http.get("assets/data/empresas.json")
-            .map(this.extractData)
-            .catch(this.handleError);
+        if (this.cachedEmpresas == null) {
+            this.cachedEmpresas = this.http.get("assets/data/empresas.json")
+                .map(this.extractData)
+                .catch(this.handleError);
+        }
+
+        return this.cachedEmpresas;
     }
 
     private extractData(res: Response) {

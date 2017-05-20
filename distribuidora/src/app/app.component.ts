@@ -1,3 +1,4 @@
+import { ProfileManager } from './shared/models/profile.manager';
 import { AuthService } from './shared/services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthConfigFactory } from "./shared/services/auth/auth-config.factory";
@@ -7,7 +8,7 @@ import { DataService } from "./shared/services/data.service";
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [DataService, AuthConfigFactory, AuthService]
+  providers: [DataService, ProfileManager, AuthConfigFactory, AuthService]
 })
 export class AppComponent implements OnInit {
 

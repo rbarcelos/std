@@ -50,7 +50,7 @@ export class AuthConfigFactory {
                     },
                     {
                         type: 'select',
-                        name: "empresa",
+                        name: "empresa_id",
                         placeholder: "Selecione sua empresa",
                         icon: '../assets/img/office.svg',
                         options: this.getEmpresas.bind(this)
@@ -75,7 +75,7 @@ export class AuthConfigFactory {
         let titleCase = new TitleCasePipe();
 
         options = empresas.map((empresa) => {
-            return { value: JSON.stringify(empresa), label: titleCase.transform(empresa.name) };
+            return { value: empresa.id, label: titleCase.transform(empresa.name) };
         });
 
         return options;

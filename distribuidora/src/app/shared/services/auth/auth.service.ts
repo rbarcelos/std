@@ -1,3 +1,4 @@
+import { ProfileManager } from '../../models/profile.manager';
 import { Injectable } from '@angular/core';
 import { AuthConfigFactory } from './auth-config.factory';
 import { Router, NavigationStart } from '@angular/router';
@@ -13,14 +14,15 @@ export class AuthService {
 
   lock: any;
   userProfile: Profile;
+  empresaProfile: Empresa;
 
-  constructor(public router: Router, private configFactory: AuthConfigFactory) {
+  constructor(public router: Router, private configFactory: AuthConfigFactory, private profileMgr: ProfileManager) {
 
     var authConfig = this.configFactory.createAuthConfig();
     var lockConfig = this.configFactory.createLockConfig();
 
     this.lock = new Auth0Lock(authConfig.clientID, authConfig.domain, lockConfig);
-    this.userProfile = JSON.parse(localStorage.getItem('profile'));
+    this.userProfile = this.profileMgr.loadFromBrowserCache();
   }
 
   public login(): void {
@@ -63,20 +65,20 @@ export class AuthService {
       }
 
       profile.user_metadata = profile.user_metadata || {};
-      this.userProfile = Profile.fromAuth0Profile(profile);
-
-      localStorage.setItem('profile', JSON.stringify(this.userProfile));
-
-      console.log(this.userProfile);
-      this.lock.hide();
-      this.navigate(this.userProfile.empresa);
+      this.profileMgr.create(profile).subscribe((result) => {
+        this.userProfile = result;
+        this.profileMgr.saveOnBrowserCache(this.userProfile);
+        console.log(this.userProfile);
+        this.lock.hide();
+        this.navigate(this.userProfile.empresa);
+      });
     });
   }
 
   public logout(): void {
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
-    localStorage.removeItem('profile');
+    this.profileMgr.clearBrowserCache();
     this.userProfile = null;
     this.navigate(null);
   }
@@ -90,7 +92,7 @@ export class AuthService {
     // access token's expiry time
     // const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     // return new Date().getTime() < expiresAt;
-    return tokenNotExpired('id_token');
+    return tokenNotExpired('id_token') && this.userProfile != null;
   }
 
 }
