@@ -27,7 +27,7 @@ export class AuthService {
 
   public login(): void {
     if (this.isAuthenticated) {
-      this.navigate();
+      this.navigateModule();
     }
     else {
       this.lock.hide();
@@ -102,7 +102,7 @@ export class AuthService {
         this.profileMgr.saveOnBrowserCache(this.userProfile);
         console.log(this.userProfile);
         // this.lock.hide();
-        this.navigate();
+        this.navigateModule();
       });
     });
   }
@@ -112,34 +112,19 @@ export class AuthService {
     localStorage.removeItem('id_token');
     this.profileMgr.clearBrowserCache();
     this.userProfile = null;
-    this.navigate();
+    this.navigateLogin();
   }
 
-  public navigate() {
-    // this
-    //   .router
-    //   .events
-    //   .subscribe(event => {
-    //     console.log("navigate:" + event);
-    //     console.log(event);
+  public navigateModule() {
+    this.router.navigate(['/' + this.userProfile.empresa.type]);
+  }
 
-    //     if (!this.isAuthRoute(event as NavigationStart)) {
-    //       if (this.isAuthenticated) {
-    //         this.router.navigate(['/' + this.userProfile.empresa.type]);
-    //       }
-    //       else {
-    //         this.router.navigate(['/login']);
-    //       }
-    //     }
-    //   });
+  public navigateLogin() {
+    this.router.navigate(['/login']);
+  }
 
-    this.lock.hide();
-    if (this.isAuthenticated) {
-      this.router.navigate(['/' + this.userProfile.empresa.type]);
-    }
-    else {
-      this.router.navigate(['/login']);
-    }
+  public navigateUnauthorized() {
+    this.router.navigate(['/unauthorized']);
   }
 
   public get isAuthenticated(): boolean {

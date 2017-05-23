@@ -5,19 +5,16 @@ import { AuthService } from "./auth.service";
 import { EmpresaType } from "../models/empresa-type.enum";
 
 @Injectable()
-export class LandingPageGuard implements CanActivate {
+export class TransportadoraGuard implements CanActivate {
 
     constructor(private router: Router, private auth: AuthService) { }
 
     canActivate() {
-        var res = this.auth.isAuthenticated;
-        if (res) {
-            this.auth.navigateModule();
-        }
-        else {
-            this.auth.navigateLogin();
+        if (this.auth.isAuthenticated) {
+            return this.auth.userProfile.empresa.type == EmpresaType.Transportadora;
         }
 
-        return res;
+        this.router.navigate(['/unauthorized']);
+        return false;
     }
 }

@@ -1,3 +1,4 @@
+import { DistribuidoraGuard } from '../common/auth/distribuidora.guard';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
@@ -10,6 +11,7 @@ export const DISTRIBUIDORA_ROUTES: Routes = [
     {
         path: 'distribuidora',
         component: DistribuidoraComponent,
+        canActivate: [DistribuidoraGuard],
         children: [
             { path: 'dashboard', component: HomeComponent },
             { path: 'users', component: UserComponent },

@@ -9,12 +9,17 @@ export class DistribuidoraGuard implements CanActivate {
 
     constructor(private router: Router, private auth: AuthService) { }
 
-    canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    canActivate() {
         if (this.auth.isAuthenticated) {
-            return this.auth.userProfile.empresa.type == EmpresaType.Distribuidora;
+            // if (this.auth.userProfile.empresa.type != EmpresaType.Distribuidora) {
+            //     this.auth.navigateUnauthorized();
+            //     return false;
+            // }
+
+            return true;
         }
 
-        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
-        return;
+        this.auth.navigateLogin();
+        return false;
     }
 }

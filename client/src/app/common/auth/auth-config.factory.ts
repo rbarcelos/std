@@ -37,6 +37,7 @@ export class AuthConfigFactory {
                 // },
                 language: 'pt-BR',
                 rememberLastLogin: false,
+                closable: false,
                 theme: {
                     logo: '../assets/img/iconfinder-65-512.png',
                     primaryColor: '#7986cb'

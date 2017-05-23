@@ -17,12 +17,13 @@ import { DistribuidoraModule } from './distribuidora/distribuidora.module';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AuthService } from "./common/auth/auth.service";
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './common/auth/login/login.component';
 import { APP_ROUTES, APP_COMPONENTS } from './app.routes'
-import { AuthGuard } from "./common/auth/auth.guard";
+import { LandingPageGuard } from "./common/auth/auth.guard";
 import { AuthConfigFactory } from "./common/auth/auth-config.factory";
 import { DataService } from "./common/services/data.service";
 import { ProfileManager } from "app/common/models/profile.manager";
+import { AUTH_PROVIDERS, AuthModule } from './common/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { ProfileManager } from "app/common/models/profile.manager";
     RouterModule.forRoot(APP_ROUTES),
     DistribuidoraModule
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, ProfileManager, DataService, AuthConfigFactory, AuthService, AuthGuard],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, AUTH_PROVIDERS],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

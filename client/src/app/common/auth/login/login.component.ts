@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { AuthService } from "../common/auth/auth.service";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,6 @@ export class LoginComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log("LoginComponent - ngAfterViewInit");
     this.authService.login();
   }
 
