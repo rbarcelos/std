@@ -26,26 +26,58 @@ export class AuthService {
   }
 
   public login(): void {
-    // if (!this.isAuthenticated()) {
-    this.lock.show();
-    // }
+    if (this.isAuthenticated) {
+      this.navigate();
+    }
+    else {
+      this.lock.hide();
+      this.lock.show();
+    }
   }
 
   // Call this method in app.component
   // if using path-based routing
-  public enableAuthentication(): void {
+  public handleAuthentication(authRouteCallback, nonAuthRouteCallback) {
+    var noop = function (event: any) { };
+
+    authRouteCallback = authRouteCallback || noop;
+    nonAuthRouteCallback = nonAuthRouteCallback || noop;
+
+    this.internalHandleAuthentication(
+      (event) => {
+        this.lock.resumeAuth(window.location.hash, (error, authResult) => {
+          if (error) return console.log(error);
+          this.setSession(authResult);
+          authRouteCallback(event);
+        });
+      },
+      nonAuthRouteCallback);
+  }
+
+  private internalHandleAuthentication(authRouteCallback, nonAuthRouteCallback) {
     this
       .router
       .events
       .filter(event => event instanceof NavigationStart)
-      .filter((event: NavigationStart) => (/access_token|id_token|error/).test(event.url))
+      .filter((event: NavigationStart) => this.isAuthRoute(event))
       .subscribe(event => {
-        this.lock.resumeAuth(window.location.hash, (error, authResult) => {
-          if (error) return console.log(error);
-          this.setSession(authResult);
-        });
+        authRouteCallback(event)
+      });
+
+    this
+      .router
+      .events
+      .filter(event => event instanceof NavigationStart)
+      .filter((event: NavigationStart) => !this.isAuthRoute(event))
+      .subscribe(event => {
+        nonAuthRouteCallback(event);
       });
   }
+
+  private isAuthRoute(route: NavigationStart): boolean {
+    return (/access_token|id_token|error/).test(route.url);
+  }
+
 
   private setSession(authResult): void {
     // Set the time that the access token will expire at
@@ -69,8 +101,8 @@ export class AuthService {
         this.userProfile = result;
         this.profileMgr.saveOnBrowserCache(this.userProfile);
         console.log(this.userProfile);
-        this.lock.hide();
-        this.navigate(this.userProfile.empresa);
+        // this.lock.hide();
+        this.navigate();
       });
     });
   }
@@ -80,14 +112,37 @@ export class AuthService {
     localStorage.removeItem('id_token');
     this.profileMgr.clearBrowserCache();
     this.userProfile = null;
-    this.navigate(null);
+    this.navigate();
   }
 
-  private navigate(moduleType: Empresa) {
-    this.router.navigate(['/']);
+  public navigate() {
+    // this
+    //   .router
+    //   .events
+    //   .subscribe(event => {
+    //     console.log("navigate:" + event);
+    //     console.log(event);
+
+    //     if (!this.isAuthRoute(event as NavigationStart)) {
+    //       if (this.isAuthenticated) {
+    //         this.router.navigate(['/' + this.userProfile.empresa.type]);
+    //       }
+    //       else {
+    //         this.router.navigate(['/login']);
+    //       }
+    //     }
+    //   });
+
+    this.lock.hide();
+    if (this.isAuthenticated) {
+      this.router.navigate(['/' + this.userProfile.empresa.type]);
+    }
+    else {
+      this.router.navigate(['/login']);
+    }
   }
 
-  public isAuthenticated(): boolean {
+  public get isAuthenticated(): boolean {
     // Check whether the current time is past the
     // access token's expiry time
     // const expiresAt = JSON.parse(localStorage.getItem('expires_at'));

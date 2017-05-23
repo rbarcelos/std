@@ -13,29 +13,31 @@ import { StdCommonModule } from './common/common.module';
 // import { SidebarModule } from './sidebar/sidebar.module';
 import { RouterModule } from '@angular/router';
 
-// import { ContentComponent } from './content/content.component';
+import { DistribuidoraModule } from './distribuidora/distribuidora.module';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AuthService } from "./common/auth/auth.service";
+import { LoginComponent } from './login/login.component';
+import { APP_ROUTES, APP_COMPONENTS } from './app.routes'
+import { AuthGuard } from "./common/auth/auth.guard";
+import { AuthConfigFactory } from "./common/auth/auth-config.factory";
+import { DataService } from "./common/services/data.service";
+import { ProfileManager } from "app/common/models/profile.manager";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    // ContentComponent
+    APP_COMPONENTS
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     StdCommonModule,
-    // ContentModule,
-    // FabModule,
-    // NavbarModule,
-    // SidebarModule,
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBJHoiEGfmO9sVBI_3iJbNTW4Qc_dxdnyk', region: 'BR', language: 'pt-BR', libraries: ['places'] }),
-    RouterModule.forRoot([])
+    RouterModule.forRoot(APP_ROUTES),
+    DistribuidoraModule
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, ProfileManager, DataService, AuthConfigFactory, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

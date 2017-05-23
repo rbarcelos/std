@@ -26,11 +26,15 @@ export class AuthConfigFactory {
     public createLockConfig(): Auth0LockConstructorOptions {
         var config: Auth0LockConstructorOptions =
             {
-                container: 'root',
+                // container: 'root',
                 allowedConnections: ['Username-Password-Authentication'],
                 languageDictionary: {
                     title: "Smart Tracking & Delivery",
                 },
+                // auth: {
+                //     redirectUrl: 'http://localhost:4200/callback',
+                //     responseType: 'token id_token',
+                // },
                 language: 'pt-BR',
                 rememberLastLogin: false,
                 theme: {

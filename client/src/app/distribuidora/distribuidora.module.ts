@@ -1,10 +1,10 @@
 import { AuthService } from '../common/auth/auth.service';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
-import { MODULE_COMPONENTS, MODULE_ROUTES } from './content.routes';
+import { DISTRIBUIDORA_COMPONENTS, DISTRIBUIDORA_ROUTES } from './distribuidora.routes';
 
 
 import { RotasComponent } from './rotas/rotas.component';
@@ -16,6 +16,9 @@ import { NfeCardComponent } from './nfe-card/nfe-card.component';
 
 import { WizardModule } from './cadastro/wizard/wizard.module';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { DistribuidoraComponent } from "./distribuidora.component";
+import { SidebarComponent } from './sidebar/sidebar.component'
+import { NavbarComponent } from '../common/navbar/navbar.component'
 
 @NgModule({
   imports: [
@@ -23,9 +26,10 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     AgmCoreModule,
     MomentModule,
     WizardModule,
-    RouterModule.forChild(MODULE_ROUTES)
+    RouterModule.forChild(DISTRIBUIDORA_ROUTES)
   ],
-  declarations: [RotasComponent, MapaComponent, InfoWindowContentComponent, MODULE_COMPONENTS, NfeCardComponent, CadastroComponent],
-  exports: [RotasComponent],
+  declarations: [RotasComponent, MapaComponent, InfoWindowContentComponent, DISTRIBUIDORA_COMPONENTS, NavbarComponent, SidebarComponent, NfeCardComponent, CadastroComponent, DistribuidoraComponent],
+  exports: [RotasComponent, DistribuidoraComponent],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
 })
-export class ContentModule { }
+export class DistribuidoraModule { }

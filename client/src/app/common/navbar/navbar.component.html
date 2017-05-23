@@ -38,9 +38,8 @@
             <p class="hidden-lg hidden-md">Perfil</p>
           </a>
           <ul class="dropdown-menu">
-            <li *ngIf="authService.isAuthenticated()"><a href="#">Editar perfil</a></li>
-            <li *ngIf="authService.isAuthenticated()"><a href="#" (click)="authService.logout()">Logout</a></li>
-            <li *ngIf="!authService.isAuthenticated()"><a href="#" (click)="authService.login()">Login</a></li>
+            <li><a href="#">Editar perfil</a></li>
+            <li><a href="#" (click)="authService.logout()">Logout</a></li>
           </ul>
         </li>
       </ul>

@@ -3,6 +3,7 @@ import { AuthService } from './common/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthConfigFactory } from "./common/auth/auth-config.factory";
 import { DataService } from "./common/services/data.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,29 @@ import { DataService } from "./common/services/data.service";
 })
 export class AppComponent implements OnInit {
 
-  constructor(public authService: AuthService) {
-    this.authService.enableAuthentication();
+  constructor(public authService: AuthService, public router: Router) {
+    this.authService.handleAuthentication(
+      (event) => {
+        console.log("auth:" + event);
+        console.log(event);
+      },
+      (event) => {
+        console.log("noauth:" + event);
+        console.log(event);
+        // this.authService.navigate();
+      });
   }
 
   ngOnInit(): void {
-    this.authService.login();
-  }
+    // this.authService.handleAuthentication(
+    //   (event) => {
+    //     console.log("auth:" + event)
+    //   },
+    //   (event) => {
+    //     console.log("noauth:" + event);
+    //     this.authService.navigate();
+    //   });
 
+    // this.authService.navigate();
+  }
 }
