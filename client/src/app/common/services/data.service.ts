@@ -4,6 +4,8 @@ import { Empresa } from '../models/empresa';
 import { Http, Response } from '@angular/http';
 import { Observable, Observer } from 'rxjs';
 
+import { plainToClass } from "class-transformer";
+
 import * as Collections from 'typescript-collections';
 
 @Injectable()
@@ -22,7 +24,8 @@ export class DataService {
     retrieveEmpresas(): Observable<Empresa[]> {
         if (this.cachedEmpresas == null) {
             this.cachedEmpresas = this.http.get("assets/data/empresas.json")
-                .map(this.extractData)
+                .map(res => res.json())
+                .map(res => plainToClass(Empresa, res as Object[]))
                 .catch(this.handleError);
         }
 

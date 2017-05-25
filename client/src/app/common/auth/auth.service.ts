@@ -8,6 +8,7 @@ import Auth0Lock from 'auth0-lock';
 import { tokenNotExpired } from 'angular2-jwt';
 import { Profile } from "../models/profile";
 import { Empresa } from "../models/empresa";
+import { EmpresaType } from "../models/empresa-type.enum";
 
 @Injectable()
 export class AuthService {
@@ -116,7 +117,8 @@ export class AuthService {
   }
 
   public navigateModule() {
-    this.router.navigate(['/' + this.userProfile.empresa.type]);
+    let str = this.userProfile.empresa.typeAsString;
+    this.router.navigate(['/' + str]);
   }
 
   public navigateLogin() {

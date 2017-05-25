@@ -1,4 +1,4 @@
 export enum EmpresaType {
-    Transportadora,
-    Distribuidora
+    Transportadora = 1,
+    Distribuidora = 2
 }

@@ -11,10 +11,10 @@ export class DistribuidoraGuard implements CanActivate {
 
     canActivate() {
         if (this.auth.isAuthenticated) {
-            // if (this.auth.userProfile.empresa.type != EmpresaType.Distribuidora) {
-            //     this.auth.navigateUnauthorized();
-            //     return false;
-            // }
+            if (this.auth.userProfile.empresa.type != EmpresaType.Distribuidora) {
+                this.auth.navigateUnauthorized();
+                return false;
+            }
 
             return true;
         }
