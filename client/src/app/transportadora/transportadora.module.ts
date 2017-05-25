@@ -4,10 +4,13 @@ import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/c
 import { TransportadoraComponent } from './transportadora.component';
 import { TransportadoraGuard } from "./transportadora.guard";
 import { TRANSPORTADORA_ROUTES, TRANSPORTADORA_COMPONENTS } from "./transportadora.routes";
+import { StdCommonModule } from "../common/common.module";
+
 
 @NgModule({
   imports: [
     CommonModule,
+    StdCommonModule,
     RouterModule.forChild(TRANSPORTADORA_ROUTES)
   ],
   declarations: [TRANSPORTADORA_COMPONENTS],

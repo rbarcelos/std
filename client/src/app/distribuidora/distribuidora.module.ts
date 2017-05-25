@@ -18,7 +18,7 @@ import { WizardModule } from './cadastro/wizard/wizard.module';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { DistribuidoraComponent } from "./distribuidora.component";
 import { SidebarComponent } from './sidebar/sidebar.component'
-import { NavbarComponent } from '../common/navbar/navbar.component'
+import { StdCommonModule } from "../common/common.module";
 
 @NgModule({
   imports: [
@@ -26,9 +26,10 @@ import { NavbarComponent } from '../common/navbar/navbar.component'
     AgmCoreModule,
     MomentModule,
     WizardModule,
+    StdCommonModule,
     RouterModule.forChild(DISTRIBUIDORA_ROUTES)
   ],
-  declarations: [RotasComponent, MapaComponent, InfoWindowContentComponent, DISTRIBUIDORA_COMPONENTS, NavbarComponent, SidebarComponent, NfeCardComponent, CadastroComponent, DistribuidoraComponent],
+  declarations: [RotasComponent, MapaComponent, InfoWindowContentComponent, DISTRIBUIDORA_COMPONENTS, SidebarComponent, NfeCardComponent, CadastroComponent, DistribuidoraComponent],
   exports: [RotasComponent, DistribuidoraComponent],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, DistribuidoraGuard],
 })

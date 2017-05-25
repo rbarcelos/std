@@ -20,11 +20,12 @@ import { AdminModule } from "./admin/admin.module";
   declarations: [
     APP_COMPONENTS
   ],
+  exports: [],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    StdCommonModule,
+
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBJHoiEGfmO9sVBI_3iJbNTW4Qc_dxdnyk', region: 'BR', language: 'pt-BR', libraries: ['places'] }),
     RouterModule.forRoot(APP_ROUTES),
     DistribuidoraModule,

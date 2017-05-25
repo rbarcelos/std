@@ -11,7 +11,7 @@ export class TransportadoraGuard implements CanActivate {
 
     canActivate() {
         if (this.auth.isAuthenticated) {
-            if (this.auth.userProfile.empresa.type != EmpresaType.Transportadora) {
+            if (this.auth.userProfile.empresa.type != EmpresaType.Distribuidora) {
                 this.auth.navigateUnauthorized();
                 return false;
             }
