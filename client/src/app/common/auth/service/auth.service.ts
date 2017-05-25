@@ -117,6 +117,8 @@ export class AuthService {
   }
 
   public navigateModule() {
+    console.log("Selected User");
+    console.dir(this.userProfile);
     let str = this.userProfile.empresa.typeAsString;
     this.router.navigate(['/' + str]);
   }

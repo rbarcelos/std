@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from "../service/auth.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-unauthorized',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UnauthorizedComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService, public location: Location) { }
 
   ngOnInit() {
   }

@@ -18,7 +18,7 @@ export const DISTRIBUIDORA_ROUTES: Routes = [
             { path: 'rotas', component: RotasComponent },
             { path: 'notas', component: NotasFiscaisComponent },
             { path: 'cadastro', component: CadastroComponent },
-            // { path: '', redirectTo: 'rotas', pathMatch: 'full' }
+            { path: '', redirectTo: 'rotas', pathMatch: 'full' }
         ]
     }
 ]

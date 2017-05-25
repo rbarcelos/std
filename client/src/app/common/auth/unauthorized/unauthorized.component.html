@@ -1,3 +1,29 @@
-<p>
-  unauthorized works!
-</p>
+<div style="position: absolute; top: 50%; transform: translateY(-50%);width:100%">
+
+  <div>
+    <img src="../assets/img/std.gif" style="height:405px" />
+  </div>
+  <div style="margin-left: 400px;    margin-top: 40px;">
+    <ul class="nav nav-pills " role="tablist">
+      <li class="active">
+        <a role="tab" data-toggle="tab" (click)="this.location.back()" class="item">
+          <i class="material-icons">reply</i> Voltar
+        </a>
+      </li>
+
+
+      <li class="active">
+        <a role="tab" data-toggle="tab" (click)="this.authService.logout()" class="item">
+          <i class="material-icons">exit_to_app</i> Logout
+        </a>
+      </li>
+
+
+      <li class="active">
+        <a role="tab" data-toggle="tab" (click)="this.authService.navigateModule()" class="item">
+          <i class="material-icons">dashboard</i> Ir para dashboard
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

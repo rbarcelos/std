@@ -1,3 +1,4 @@
+import { deserialize, serialize } from 'class-transformer';
 import { Profile } from './profile';
 import { TitleCasePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
@@ -27,12 +28,12 @@ export class ProfileManager {
     }
 
     public loadFromBrowserCache(): Profile {
-        return JSON.parse(localStorage.getItem('user_profile'));
+        return deserialize(Profile, localStorage.getItem('user_profile'));
     }
 
- 
+
     public saveOnBrowserCache(profile: Profile) {
-        localStorage.setItem('user_profile', JSON.stringify(profile));
+        localStorage.setItem('user_profile', serialize(profile));
     }
 
 
