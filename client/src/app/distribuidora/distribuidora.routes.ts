@@ -1,4 +1,4 @@
-import { DistribuidoraGuard } from '../common/auth/distribuidora.guard';
+import { DistribuidoraGuard } from './distribuidora.guard';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
@@ -18,7 +18,7 @@ export const DISTRIBUIDORA_ROUTES: Routes = [
             { path: 'rotas', component: RotasComponent },
             { path: 'notas', component: NotasFiscaisComponent },
             { path: 'cadastro', component: CadastroComponent },
-            { path: '', redirectTo: 'rotas', pathMatch: 'full' }
+            // { path: '', redirectTo: 'rotas', pathMatch: 'full' }
         ]
     }
 ]

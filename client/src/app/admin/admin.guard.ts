@@ -1,20 +1,24 @@
 import { Injectable } from "@angular/core";
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from "@angular/router";
 import { Observable } from "rxjs";
-import { AuthService } from "./auth.service";
-import { EmpresaType } from "../models/empresa-type.enum";
+import { AuthService } from "../common/auth/service/auth.service";
 
 @Injectable()
-export class TransportadoraGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
 
     constructor(private router: Router, private auth: AuthService) { }
 
     canActivate() {
         if (this.auth.isAuthenticated) {
-            return this.auth.userProfile.empresa.type == EmpresaType.Transportadora;
+            // if (this.auth.userProfile.empresa.type != EmpresaType.Transportadora) {
+            //     this.auth.navigateUnauthorized();
+            //     return false;
+            // }
+
+            return true;
         }
 
-        this.router.navigate(['/unauthorized']);
+        this.auth.navigateLogin();
         return false;
     }
 }

@@ -1,5 +1,5 @@
 import { Component, Pipe } from '@angular/core';
-import { AuthService } from '../auth/auth.service'
+import { AuthService } from '../auth/service/auth.service'
 
 @Component({
     moduleId: module.id,

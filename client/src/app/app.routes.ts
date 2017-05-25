@@ -1,4 +1,4 @@
-import { LandingPageGuard } from './common/auth/auth.guard';
+import { LandingPageGuard } from './common/auth/landingpage.guard';
 import { CanActivate } from '@angular/router/router';
 import { Routes } from '@angular/router';
 import { AppComponent } from './app.component';

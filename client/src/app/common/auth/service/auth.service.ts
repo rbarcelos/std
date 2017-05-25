@@ -1,4 +1,4 @@
-import { ProfileManager } from '../models/profile.manager';
+import { ProfileManager } from '../../models/profile.manager';
 import { Injectable } from '@angular/core';
 import { AuthConfigFactory } from './auth-config.factory';
 import { Router, NavigationStart } from '@angular/router';
@@ -6,9 +6,9 @@ import 'rxjs/add/operator/filter';
 import Auth0Lock from 'auth0-lock';
 
 import { tokenNotExpired } from 'angular2-jwt';
-import { Profile } from "../models/profile";
-import { Empresa } from "../models/empresa";
-import { EmpresaType } from "../models/empresa-type.enum";
+import { Profile } from "../../models/profile";
+import { Empresa } from "../../models/empresa";
+import { EmpresaType } from "../../models/empresa-type.enum";
 
 @Injectable()
 export class AuthService {

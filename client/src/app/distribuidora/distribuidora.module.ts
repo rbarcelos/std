@@ -1,4 +1,4 @@
-import { AuthService } from '../common/auth/auth.service';
+import { DistribuidoraGuard } from './distribuidora.guard';
 import { NgModule } from '@angular/core';
 import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -30,6 +30,6 @@ import { NavbarComponent } from '../common/navbar/navbar.component'
   ],
   declarations: [RotasComponent, MapaComponent, InfoWindowContentComponent, DISTRIBUIDORA_COMPONENTS, NavbarComponent, SidebarComponent, NfeCardComponent, CadastroComponent, DistribuidoraComponent],
   exports: [RotasComponent, DistribuidoraComponent],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, DistribuidoraGuard],
 })
 export class DistribuidoraModule { }

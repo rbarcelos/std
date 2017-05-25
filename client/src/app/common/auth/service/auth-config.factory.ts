@@ -1,8 +1,8 @@
 import { TitleCasePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { DataService } from '../services/data.service';
+import { DataService } from '../../services/data.service';
 import { Observable } from "rxjs/Rx";
-import { Empresa } from "../models/empresa";
+import { Empresa } from "../../models/empresa";
 
 interface AuthConfig {
     clientID: string;

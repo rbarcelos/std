@@ -1,7 +1,7 @@
 import { ProfileManager } from './common/models/profile.manager';
-import { AuthService } from './common/auth/auth.service';
+import { AuthService } from './common/auth/service/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { AuthConfigFactory } from "./common/auth/auth-config.factory";
+import { AuthConfigFactory } from "./common/auth/service/auth-config.factory";
 import { DataService } from "./common/services/data.service";
 import { Router } from "@angular/router";
 
@@ -22,20 +22,9 @@ export class AppComponent implements OnInit {
       (event) => {
         console.log("noauth:" + event);
         console.log(event);
-        // this.authService.navigate();
       });
   }
 
   ngOnInit(): void {
-    // this.authService.handleAuthentication(
-    //   (event) => {
-    //     console.log("auth:" + event)
-    //   },
-    //   (event) => {
-    //     console.log("noauth:" + event);
-    //     this.authService.navigate();
-    //   });
-
-    // this.authService.navigate();
   }
 }
