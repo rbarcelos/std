@@ -4,10 +4,12 @@ import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/c
 import { AdminComponent } from './admin.component';
 import { AdminGuard } from "./admin.guard";
 import { ADMIN_ROUTES, ADMIN_COMPONENTS } from "./admin.routes";
+import { StdCommonModule } from "../common/common.module";
 
 @NgModule({
   imports: [
     CommonModule,
+    StdCommonModule,
     RouterModule.forChild(ADMIN_ROUTES)
   ],
   declarations: [ADMIN_COMPONENTS],

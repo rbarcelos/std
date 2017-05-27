@@ -10,15 +10,15 @@ export class AdminGuard implements CanActivate {
 
     canActivate() {
         if (this.auth.isAuthenticated) {
-            // if (this.auth.userProfile.empresa.type != EmpresaType.Transportadora) {
-            //     this.auth.navigateUnauthorized();
-            //     return false;
-            // }
+            if (!this.auth.userProfile.isAdmin) {
+                this.auth.navigateToUnauthorizedModule();
+                return false;
+            }
 
             return true;
         }
 
-        this.auth.navigateLogin();
+        this.auth.navigateToLoginModule();
         return false;
     }
 }

@@ -17,10 +17,12 @@ export class ProfileManager {
             this.dataService.retrieveEmpresas().subscribe(
                 result => {
                     var prof = new Profile();
+                    var appMetadata = auth0Profile.app_metadata;
                     var userMetadata = auth0Profile.user_metadata;
                     prof.name = userMetadata['full_name'];
                     prof.email = auth0Profile.email;
                     prof.empresa = result.find(emp => emp.id === userMetadata['empresa_id']);
+                    prof.isAdmin = appMetadata['roles'].find(role => role === 'admin');
                     observer.next(prof);
                     observer.complete();
                 });

@@ -38,8 +38,8 @@
             <p class="hidden-lg hidden-md">Perfil</p>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Editar perfil</a></li>
-            <li><a href="#" (click)="authService.logout()">Logout</a></li>
+            <li><a [href]="'/#/'+this.moduleLinkToNavigate" *ngIf="this.shouldAllowNavigate">{{this.moduleNameToNavigate | titlecase}}</a></li>
+            <li><a href="#" (click)="this.authService.logout()">Logout</a></li>
           </ul>
         </li>
       </ul>

@@ -12,10 +12,10 @@ export class LandingPageGuard implements CanActivate {
     canActivate() {
         var res = this.auth.isAuthenticated;
         if (res) {
-            this.auth.navigateModule();
+            this.auth.navigateToMainModule();
         }
         else {
-            this.auth.navigateLogin();
+            this.auth.navigateToLoginModule();
         }
 
         return res;

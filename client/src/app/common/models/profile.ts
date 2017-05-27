@@ -13,4 +13,6 @@ export class Profile {
 
     public region: string;
 
+    public isAdmin: boolean;
+
 }
