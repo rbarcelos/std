@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
+import { SIDEBAR_ITEMS } from "./distribuidora.routes";
+import { SidebarMenuItemInfo } from "app/distribuidora/sidebar/sidebar.metadata";
 
 @Component({
   selector: 'app-distribuidora',
@@ -8,10 +9,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class DistribuidoraComponent implements OnInit {
-
+  public menuItems: SidebarMenuItemInfo[];
   constructor() { }
 
   ngOnInit() {
+    this.menuItems = SIDEBAR_ITEMS;
   }
 
 }

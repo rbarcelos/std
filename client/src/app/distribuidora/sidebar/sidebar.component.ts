@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { SidebarRoutes } from './sidebar.routes';
+import { Component, Input } from '@angular/core';
+import { SidebarMenuItemInfo } from "./sidebar.metadata";
 
 declare var $: any;
 @Component({
@@ -8,10 +8,15 @@ declare var $: any;
     templateUrl: 'sidebar.component.html',
 })
 
-export class SidebarComponent implements OnInit {
-    public menuItems: any[];
-    ngOnInit() {
+export class SidebarComponent {
+    @Input()
+    public menuItems: SidebarMenuItemInfo[];
+
+    constructor() {
         $.getScript('../assets/js/sidebar-moving-tab.js');
-        this.menuItems = SidebarRoutes.filter(menuItem => menuItem);
+    }
+
+    ngOnInit() {
+
     }
 }
