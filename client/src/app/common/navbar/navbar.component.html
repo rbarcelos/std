@@ -38,7 +38,7 @@
             <p class="hidden-lg hidden-md">Perfil</p>
           </a>
           <ul class="dropdown-menu">
-            <li><a [href]="'/#/'+this.moduleLinkToNavigate" *ngIf="this.shouldAllowNavigate">{{this.moduleNameToNavigate | titlecase}}</a></li>
+            <li><a [routerLink]="['/'+this.moduleLinkToNavigate]" [queryParams]="{ crossModule: true }" *ngIf="this.shouldAllowNavigate">{{this.moduleNameToNavigate | titlecase}}</a></li>
             <li><a href="#" (click)="this.authService.logout()">Logout</a></li>
           </ul>
         </li>

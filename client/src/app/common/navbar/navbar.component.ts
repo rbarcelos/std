@@ -1,6 +1,7 @@
-import { RouterLink } from '@angular/router';
-import { Component, Pipe, Input } from '@angular/core';
+import { RouterLink, ActivatedRoute } from '@angular/router';
+import { Component, Pipe, Input, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../auth/service/auth.service'
+import { Subscription } from "rxjs/Rx";
 
 @Component({
     moduleId: module.id,
@@ -9,12 +10,28 @@ import { AuthService } from '../auth/service/auth.service'
     providers: []
 })
 
-export class NavbarComponent {
+export class NavbarComponent implements OnInit, OnDestroy {
 
     @Input() isAdminMode: boolean;
 
-    constructor(public authService: AuthService) {
+    sub: Subscription;
+    constructor(public authService: AuthService, private route: ActivatedRoute) {
         this.isAdminMode = false;
+    }
+
+    ngOnInit() {
+        this.sub = this.route
+            .queryParams
+            .subscribe(params => {
+                if (params['crossModule'] == "true") {
+                    window.location.replace(window.location.href.split("?")[0]);
+                    window.location.reload();
+                }
+            });
+    }
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
     }
 
     get empresaName() {
