@@ -6,7 +6,7 @@ import { RotasComponent } from './rotas/rotas.component';
 import { NotasFiscaisComponent } from './notasFiscais/notasFiscais.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { DistribuidoraComponent } from "./distribuidora.component";
-import { SidebarMenuItemInfo } from "./sidebar/sidebar.metadata";
+import { SidebarMenuItemInfo } from "../common/sidebar/sidebar.metadata";
 
 export const DISTRIBUIDORA_ROUTES: Routes = [
     {

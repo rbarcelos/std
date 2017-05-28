@@ -1,3 +1,4 @@
+import { SidebarComponent } from './sidebar/sidebar.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
@@ -11,7 +12,7 @@ import { RouterModule } from "@angular/router";
     RouterModule,
     AgmCoreModule
   ],
-  declarations: [NavbarComponent],
-  exports: [NavbarComponent]
+  declarations: [NavbarComponent, SidebarComponent],
+  exports: [NavbarComponent, SidebarComponent]
 })
 export class StdCommonModule { }

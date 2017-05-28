@@ -17,7 +17,6 @@ import { NfeCardComponent } from './nfe-card/nfe-card.component';
 import { WizardModule } from './cadastro/wizard/wizard.module';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { DistribuidoraComponent } from "./distribuidora.component";
-import { SidebarComponent } from './sidebar/sidebar.component'
 import { StdCommonModule } from "../common/common.module";
 
 @NgModule({
@@ -29,7 +28,7 @@ import { StdCommonModule } from "../common/common.module";
     StdCommonModule,
     RouterModule.forChild(DISTRIBUIDORA_ROUTES)
   ],
-  declarations: [RotasComponent, MapaComponent, InfoWindowContentComponent, DISTRIBUIDORA_COMPONENTS, SidebarComponent, NfeCardComponent, CadastroComponent, DistribuidoraComponent],
+  declarations: [RotasComponent, MapaComponent, InfoWindowContentComponent, DISTRIBUIDORA_COMPONENTS, NfeCardComponent, CadastroComponent, DistribuidoraComponent],
   exports: [RotasComponent, DistribuidoraComponent],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, DistribuidoraGuard],
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SIDEBAR_ITEMS } from "./distribuidora.routes";
-import { SidebarMenuItemInfo } from "app/distribuidora/sidebar/sidebar.metadata";
+import { SidebarMenuItemInfo } from "../common/sidebar/sidebar.metadata";
 
 @Component({
   selector: 'app-distribuidora',
