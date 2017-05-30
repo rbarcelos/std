@@ -15,13 +15,13 @@ export class DataService {
 
     constructor(private http: Http) { }
 
-    retrieveRotas(): Observable<Rota> {
+    public retrieveRotas(): Observable<Rota> {
         return this.http.get("assets/data/rotas.json")
             .map(this.extractData)
             .catch(this.handleError);
     }
 
-    retrieveEmpresas(): Observable<Empresa[]> {
+    public retrieveEmpresas(): Observable<Empresa[]> {
         if (this.cachedEmpresas == null) {
             this.cachedEmpresas = this.http.get("assets/data/empresas.json")
                 .map(res => res.json())
