@@ -15,7 +15,6 @@ import { APP_ROUTES, APP_COMPONENTS } from './app.routes'
 import { AUTH_PROVIDERS, AuthModule } from './common/auth/auth.module';
 import { TransportadoraModule } from "./transportadora/transportadora.module";
 import { AdminModule } from "./admin/admin.module";
-import { DataTablesModule } from 'angular-datatables';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
@@ -33,7 +32,6 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     DistribuidoraModule,
     TransportadoraModule,
     AdminModule,
-    DataTablesModule,
     NgxDatatableModule
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, AUTH_PROVIDERS],

@@ -11,7 +11,6 @@ import { CadastroComponent } from './distribuidoras/cadastro/cadastro.component'
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdInputModule } from '@angular/material';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 

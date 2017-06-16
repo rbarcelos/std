@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+
 import { CadastroComponent } from "./cadastro/cadastro.component";
 
 import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
@@ -69,15 +69,8 @@ export class DistribuidorasComponent {
     })
   }
 
-   rows = [];
 
   selected = [];
-
-  columns: any[] = [
-    { prop: 'name'} , 
-    { name: 'Company' }, 
-    { name: 'Gender' }
-  ];
 
 
   fetch(cb) {
@@ -112,7 +105,7 @@ export class DistribuidorasComponent {
   }
 
   someClickHandler(info: any): void {
-    this.message = info.id + ' - ' + info.firstName;
+    // this.message = info.id + ' - ' + info.firstName;
   }
 
   ngOnInit(): void {
