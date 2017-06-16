@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CadastroComponent } from "./cadastro/cadastro.component";
 
 import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
+import { DataService } from '../../common/services/data.service';
 
 @Component({
   selector: 'app-distribuidoras',
@@ -12,10 +13,10 @@ export class DistribuidorasComponent {
   lastDialogResult: string;
 
   constructor(private dialog: MdDialog, private dataService: DataService) {
- this.dat((data) => {
-      this.selected = [data[2]];
-      this.rows = data;
-    });
+//  this.dat((data) => {
+//       this.selected = [data[2]];
+//       this.rows = data;
+//     });
   }
 
   openDialog() {
