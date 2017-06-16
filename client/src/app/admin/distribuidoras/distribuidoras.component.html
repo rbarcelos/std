@@ -1,6 +1,7 @@
 <div class="main-content">
+
   <button md-raised-button (click)="openDialog()">DIALOG</button>
-</div>
+
 
 <ngx-datatable
           class="material"
@@ -16,3 +17,9 @@
           (activate)="onActivate($event)"
           (select)='onSelect($event)'>
         </ngx-datatable>
+
+  <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [messages]='messages' [limit]="1" [rows]='this.empresas'>
+  </ngx-datatable>
+</div>
+
