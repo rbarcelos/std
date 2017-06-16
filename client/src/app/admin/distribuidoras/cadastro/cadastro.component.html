@@ -1,122 +1,127 @@
-<md-sidenav-container [class.m2app-dark]="isDarkTheme">
+<div class="main-content" style="max-height:100px">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Edit Profile</h4>
+            <p class="category">Complete your profile</p>
+          </div>
+          <md-card class="app-input-section">
+            <md-input-container>
+              <input mdInput placeholder="Favorite food" value="Sushi">
+            </md-input-container>
 
-  <md-sidenav #sidenav mode="side" class="app-sidenav">
-    Sidenav
-  </md-sidenav>
+            <div class="form-group form-black label-floating is-empty">
+              <label class="control-label">Username</label>
+              <input type="text" class="form-control">
+            </div>
+          </md-card>
+          <div class="card-content">
+            <form>
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Company (disabled)</label>
+                    <input type="text" class="form-control" disabled>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Username</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Email address</label>
+                    <input type="email" class="form-control">
+                  </div>
+                </div>
+              </div>
 
-  <md-toolbar color="primary">
-    <button class="app-icon-button" (click)="sidenav.toggle()">
-      <i class="material-icons app-toolbar-menu">menu</i>
-    </button> Angular Material2 Example App
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Fist Name</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Last Name</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
 
-    <span class="app-toolbar-filler"></span>
-    <button md-button (click)="isDarkTheme = !isDarkTheme">TOGGLE DARK THEME</button>
-  </md-toolbar>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Adress</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
 
-  <div class="app-content">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">City</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Country</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Postal Code</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
 
-    <md-card>
-      <button md-button>FLAT</button>
-      <button md-raised-button md-tooltip="This is a tooltip!">RAISED</button>
-      <button md-raised-button color="primary">PRIMARY RAISED</button>
-      <button md-raised-button color="accent">ACCENT RAISED</button>
-    </md-card>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>About Me</label>
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                      <textarea class="form-control" rows="5"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    <md-card>
-      <md-checkbox>Unchecked</md-checkbox>
-      <md-checkbox [checked]="true">Checked</md-checkbox>
-      <md-checkbox [indeterminate]="true">Indeterminate</md-checkbox>
-      <md-checkbox [disabled]="true">Disabled</md-checkbox>
-    </md-card>
-
-    <md-card>
-      <md-radio-button name="symbol">Alpha</md-radio-button>
-      <md-radio-button name="symbol">Beta</md-radio-button>
-      <md-radio-button name="symbol" disabled>Gamma</md-radio-button>
-    </md-card>
-
-    <md-card class="app-input-section">
-      <md-input-container>
-        <input mdInput placeholder="Favorite food" value="Sushi">
-      </md-input-container>
-
-      <div class="form-group form-black label-floating is-empty">
-        <label class="control-label">Username</label>
-        <input type="text" class="form-control">
+              <button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
       </div>
-    </md-card>
+      <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a href="#pablo">
+              <img class="img" src="../assets/img/faces/marc.jpg" />
+            </a>
+          </div>
 
-    <md-card>
-      <md-list class="app-list">
-        <md-list-item *ngFor="let food of foods">
-          <h3 md-line>{{food.name}}</h3>
-          <p md-line class="demo-secondary-text">{{food.rating}}</p>
-        </md-list-item>
-      </md-list>
-    </md-card>
-
-    <md-card>
-      <md-spinner class="app-spinner"></md-spinner>
-      <md-spinner color="accent" class="app-spinner"></md-spinner>
-    </md-card>
-
-    <md-card>
-      <label>
-        Indeterminate progress-bar
-        <md-progress-bar
-            class="app-progress"
-            mode="indeterminate"
-            aria-label="Indeterminate progress-bar example"></md-progress-bar>
-      </label>
-
-      <label>
-        Determinate progress bar - {{progress}}%
-        <md-progress-bar
-            class="app-progress"
-            color="accent"
-            mode="determinate"
-            [value]="progress"
-            aria-label="Determinate progress-bar example"></md-progress-bar>
-      </label>
-    </md-card>
-
-    <md-card>
-      <md-tab-group>
-        <md-tab label="Earth">
-          <p>EARTH</p>
-        </md-tab>
-        <md-tab label="Fire">
-          <p>FIRE</p>
-        </md-tab>
-      </md-tab-group>
-    </md-card>
-
-    <md-card>
-      <md-icon>build</md-icon>
-    </md-card>
-
-    <md-card>
-      <button md-button [md-menu-trigger-for]="menu">
-        MENU
-      </button>
-    </md-card>
-
-    <md-menu #menu="mdMenu">
-      <button md-menu-item>Lemon</button>
-      <button md-menu-item>Lime</button>
-      <button md-menu-item>Banana</button>
-    </md-menu>
-
-    <md-card>
-      <p>Last dialog result: {{lastDialogResult}}</p>
-      <button md-raised-button (click)="openDialog()">DIALOG</button>
-      <button md-raised-button (click)="showSnackbar()">SNACKBAR</button>
-    </md-card>
-
+          <div class="content">
+            <h6 class="category text-gray">CEO / Co-Founder</h6>
+            <h4 class="card-title">Alec Thompson</h4>
+            <p class="card-content">
+              Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye
+              I love Rick Owens’ bed design but the back is...
+            </p>
+            <a href="#pablo" class="btn btn-danger btn-round">Follow</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-</md-sidenav-container>
-
-<span class="app-action" [class.m2app-dark]="isDarkTheme">
-  <button md-fab><md-icon>check circle</md-icon></button>
-</span>
+</div>
