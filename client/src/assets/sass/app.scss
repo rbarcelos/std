@@ -1,6 +1,5 @@
 $material-design-icons-font-path: "~material-design-icons-iconfont/dist/fonts/";
 @import '~@swimlane/ngx-datatable/release/index.css';
-@import '~@swimlane/ngx-datatable/release/themes/material.css';
 @import '~@swimlane/ngx-datatable/release/assets/icons.css';
 
 @import '~@angular/material/theming';
@@ -15,9 +14,7 @@ $anms-light-warn: mat-palette($mat-deep-orange, 200);
 $anms-light-theme: mat-light-theme( $anms-light-primary, $anms-light-accent, $anms-light-warn);
 @include angular-material-theme($anms-light-theme);
 @import "~material-design-icons-iconfont/dist/material-design-icons";
-@import '~@swimlane/ngx-datatable/release/index.css';
-@import '~@swimlane/ngx-datatable/release/themes/material.css';
-@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
 .headerIcon {
   float: left;
   height: 55px;

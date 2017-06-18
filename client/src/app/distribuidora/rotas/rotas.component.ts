@@ -11,6 +11,8 @@ import { PontoMapa } from '../mapa/ponto-mapa';
 import { Observable, Observer } from 'rxjs';
 import { GoogleMapsAPIWrapper, MapsAPILoader } from '@agm/core';
 
+import { DatatableComponent } from '@swimlane/ngx-datatable';
+
 @Component({
     selector: 'rotas-cmp',
     templateUrl: './rotas.component.html',
