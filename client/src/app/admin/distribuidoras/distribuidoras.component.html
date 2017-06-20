@@ -7,11 +7,11 @@
       <h4 class="title">Lista de Distribuidores</h4>
     </div>
     <div class="card-content table-responsive">
-      <ngx-datatable class="material" [rows]="this.empresas" [columnMode]="'force'" [headerHeight]="30" [footerHeight]="50" [rowHeight]="52"
+      <ngx-datatable [selectionType]="'single'" class="material" [rows]="this.empresas" [columnMode]="'force'" [headerHeight]="30" [footerHeight]="50" [rowHeight]="52"
         [limit]="2" [messages]='messages'>
         <ngx-datatable-column name="Name">
           <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
-            <span (click)="sort()" class="text-primary">{{column.name}}</span>
+            <span (click)="sort()" class="text-primary">Nome</span>
           </ng-template>
           <ng-template let-value="value" ngx-datatable-cell-template>
             {{value | titlecase}}

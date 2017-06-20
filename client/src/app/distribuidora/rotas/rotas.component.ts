@@ -22,8 +22,19 @@ import { DatatableComponent } from '@swimlane/ngx-datatable';
 })
 export class RotasComponent implements OnInit {
 
-    title: string = 'My first angular2-google-maps project';
-    currRota: Rota;
+    messages =
+    {
+        // Message to show when array is presented
+        // but contains no values
+        emptyMessage: 'Sem dados para mostrar',
+
+        // Footer total message
+        totalMessage: 'Total'
+    };
+
+    loading: boolean = true;
+    selected = [];
+    rotas: Array<Rota> = [];
     mapaPontos: Array<PontoMapa> = [];
     pontoFactory: PontoMapaFactory = new PontoMapaFactory();
 
@@ -51,7 +62,15 @@ export class RotasComponent implements OnInit {
                                     this.mapaPontos.push(ponto)
                                 }
 
-                                this.currRota = result;
+                                this.rotas.push(result);
+                                this.rotas.push(result);
+                                this.rotas.push(result);
+                                this.rotas.push(result);
+                                this.rotas.push(result);
+                                this.rotas.push(result);
+                                this.rotas.push(result);
+                                this.rotas.push(result);
+                                this.loading = false;
                             });
                         },
                         error => console.log(error),
@@ -64,6 +83,10 @@ export class RotasComponent implements OnInit {
 
     resolveEntrega(entrega: Entrega) {
         return this.mapService.resolveEntrega(entrega);
+    }
+
+    onSelect({ selected }) {
+        console.log('Select Event', selected, this.selected);
     }
 }
 

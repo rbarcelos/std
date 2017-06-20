@@ -49,7 +49,12 @@ export class DistribuidorasComponent {
   }
 
   openDialog() {
-    let dialogRef = this.dialog.open(CadastroComponent);
+    let dialogRef = this.dialog.open(
+      CadastroComponent,
+      {
+        disableClose: true,
+        width: "500px"
+      });
 
     dialogRef.afterClosed().subscribe(result => {
       this.lastDialogResult = result;

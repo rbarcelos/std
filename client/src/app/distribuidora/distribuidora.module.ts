@@ -19,6 +19,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { DistribuidoraComponent } from "./distribuidora.component";
 import { StdCommonModule } from "../common/common.module";
 
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { StdCommonModule } from "../common/common.module";
     MomentModule,
     WizardModule,
     StdCommonModule,
-    RouterModule.forChild(DISTRIBUIDORA_ROUTES)
+    RouterModule.forChild(DISTRIBUIDORA_ROUTES),
+    NgxDatatableModule
   ],
   declarations: [RotasComponent, MapaComponent, InfoWindowContentComponent, DISTRIBUIDORA_COMPONENTS, NfeCardComponent, CadastroComponent, DistribuidoraComponent],
   exports: [RotasComponent, DistribuidoraComponent],

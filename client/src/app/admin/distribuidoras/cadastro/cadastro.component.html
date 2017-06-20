@@ -1,31 +1,29 @@
-<div class="main-content" style="max-height:100px">
+<div class="main-content">
+
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header" data-background-color="red">
-            <h4 class="title">Edit Profile</h4>
-            <p class="category">Complete your profile</p>
-          </div>
+      <div class="card">
+        <div class="card-header" data-background-color="primary">
+          <h4 class="title">Distribuidora</h4>
 
-          <div class="card-content">
-            <form>
-              <div class="row">
-                <md-card class="app-input-section">
-                  <md-input-container>
-                    <input mdInput placeholder="Favorite food" value="Sushi">
-                  </md-input-container>
+        </div>
 
-                  <div class="form-group form-black label-floating is-empty">
-                    <label class="control-label">Username</label>
-                    <input type="text" class="form-control">
-                  </div>
-                </md-card>
-              </div>
-              <button type="submit" class="btn btn-danger pull-right">Update Profile</button>
-              <div class="clearfix"></div>
-            </form>
-          </div>
+        <div class="card-content">
+          <form>
+            <md-dialog-content>
+              <md-input-container>
+                <input mdInput placeholder="Nome">
+              </md-input-container>
+              <md-input-container>
+                <input mdInput placeholder="Contato">
+              </md-input-container>
+            </md-dialog-content>
+            <md-dialog-actions>
+              <button md-button md-dialog-close>Cancelar</button>
+              <button md-button type="submit" class="btn primary pull-right">Salvar</button>
+            </md-dialog-actions>
+
+          </form>
         </div>
       </div>
     </div>

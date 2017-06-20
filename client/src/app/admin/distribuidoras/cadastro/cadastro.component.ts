@@ -1,6 +1,6 @@
 
-import { Component, Optional } from '@angular/core';
-import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
+import { Component, Optional, Inject } from '@angular/core';
+import { MdDialog, MdDialogRef, MdSnackBar, MD_DIALOG_DATA } from '@angular/material';
 
 declare var $: any;
 
@@ -11,5 +11,12 @@ declare var $: any;
 })
 export class CadastroComponent {
 
-  constructor( @Optional() public dialogRef: MdDialogRef<CadastroComponent>) { }
+  constructor(
+    @Optional() @Inject(MD_DIALOG_DATA) private dialogData: any,
+    private dialogRef: MdDialogRef<CadastroComponent>) { }
+
+  get IsEdit(): boolean {
+    return this.dialogData != null;
+  }
+
 }

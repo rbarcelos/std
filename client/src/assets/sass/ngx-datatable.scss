@@ -29,8 +29,7 @@
 .ngx-datatable.material.multi-selection .datatable-body-row.active .datatable-row-group,
 .ngx-datatable.material.multi-click-selection .datatable-body-row.active,
 .ngx-datatable.material.multi-click-selection .datatable-body-row.active .datatable-row-group {
-    background-color: $brand-primary;
-    color: #FFF;
+    background-color: $brand-primary-light;
 }
 
 .ngx-datatable.material.single-selection .datatable-body-row.active:hover,
@@ -39,8 +38,7 @@
 .ngx-datatable.material.multi-selection .datatable-body-row.active:hover .datatable-row-group,
 .ngx-datatable.material.multi-click-selection .datatable-body-row.active:hover,
 .ngx-datatable.material.multi-click-selection .datatable-body-row.active:hover .datatable-row-group {
-    background-color: $brand-primary-minor;
-    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
 .ngx-datatable.material.single-selection .datatable-body-row.active:focus,

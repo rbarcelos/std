@@ -1,3 +1,9 @@
 //variables and mixins
-@import "./module_variables";
-@import "../../../assets/sass/material-dashboard";
+@import '../../../assets/sass/md/_colors';
+$brand-primary: $green-300 !default;
+$brand-primary-minor: $green-200 !default;
+$brand-primary-major: $green-400 !default;
+$brand-primary-light: $green-50 !default;
+$brand-primary-dark: $green-500 !default;
+
+@import "../../common/assets/comon.scss";
