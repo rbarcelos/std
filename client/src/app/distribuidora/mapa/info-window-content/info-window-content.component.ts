@@ -1,7 +1,6 @@
-import { Component, OnInit , Input, Pipe} from '@angular/core';
-import {TimeAgoPipe} from 'angular2-moment';
-import * as moment from 'moment';
-import {PontoMapaContent} from '../ponto-mapa-content';
+import { Component, OnInit, Input, Pipe } from '@angular/core';
+import { TimeAgoPipe } from 'angular2-moment';
+import { PontoMapaContent } from '../ponto-mapa-content';
 
 @Component({
   selector: 'info-window-content',
@@ -10,9 +9,8 @@ import {PontoMapaContent} from '../ponto-mapa-content';
   styleUrls: ['./info-window-content.component.css']
 })
 export class InfoWindowContentComponent implements OnInit {
-    @Input('model') model:PontoMapaContent;
-  constructor() { 
-  moment.locale('pt-br');
+  @Input('model') model: PontoMapaContent;
+  constructor() {
   }
 
   ngOnInit() {

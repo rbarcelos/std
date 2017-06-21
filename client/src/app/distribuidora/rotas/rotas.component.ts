@@ -10,8 +10,7 @@ import { MapaComponent } from '../mapa/mapa.component';
 import { PontoMapa } from '../mapa/ponto-mapa';
 import { Observable, Observer } from 'rxjs';
 import { GoogleMapsAPIWrapper, MapsAPILoader } from '@agm/core';
-
-import { DatatableComponent } from '@swimlane/ngx-datatable';
+import { CalendarPipe } from 'angular2-moment';
 
 @Component({
     selector: 'rotas-cmp',
@@ -32,61 +31,74 @@ export class RotasComponent implements OnInit {
         totalMessage: 'Total'
     };
 
+
     loading: boolean = true;
-    selected = [];
+    selectedRoute = [];
     rotas: Array<Rota> = [];
     mapaPontos: Array<PontoMapa> = [];
     pontoFactory: PontoMapaFactory = new PontoMapaFactory();
 
-    constructor(private dataService: DataService, private mapService: MapService, private taskManager: TaskManagerService, private ngZone: NgZone, private loader: MapsAPILoader) { }
+    constructor(
+        private dataService: DataService,
+        private mapService: MapService,
+        private taskManager: TaskManagerService,
+        private ngZone: NgZone,
+        private mapaLoader: MapsAPILoader) {
+    }
 
     ngOnInit() {
+        this.loadMap();
+        this.loadRota();
     }
 
     loadMap() {
-        return Observable.fromPromise(this.loader.load());
+        return Observable.fromPromise(this.mapaLoader.load());
+    }
+
+    get isRouteSelected(): boolean {
+        return this.mapaPontos != null && this.mapaPontos.length > 0;
     }
 
     loadRota() {
         this.dataService.retrieveRotas().subscribe(
             result => {
-                // needs to run inside zone to update the map
-                this.ngZone.run(() => {
-                    this.taskManager.waitAll(result.entregas, this.mapService.resolveEntrega.bind(this.mapService)).subscribe(
-                        batchResult => {
-                            this.ngZone.run(() => {
-                                for (let idx in batchResult) {
-                                    var res: any = batchResult[idx];
-
-                                    var ponto = this.pontoFactory.create(Number(idx), result.entregas[idx], res)
-                                    this.mapaPontos.push(ponto)
-                                }
-
-                                this.rotas.push(result);
-                                this.rotas.push(result);
-                                this.rotas.push(result);
-                                this.rotas.push(result);
-                                this.rotas.push(result);
-                                this.rotas.push(result);
-                                this.rotas.push(result);
-                                this.rotas.push(result);
-                                this.loading = false;
-                            });
-                        },
-                        error => console.log(error),
-                        () => console.log('Enderecos loaded')
-                    );
-                }
-                )
-            });
+                this.rotas.push(result);
+                this.rotas.push(result);
+                this.rotas.push(result);
+                this.rotas.push(result);
+                this.rotas.push(result);
+                this.rotas.push(result);
+                this.rotas.push(result);
+                this.rotas.push(result);
+                this.loading = false;
+            }
+        );
     }
 
-    resolveEntrega(entrega: Entrega) {
-        return this.mapService.resolveEntrega(entrega);
+    loadEntregas(rota: Rota) {
+        this.mapaPontos = [];
+        // needs to run inside zone to update the map
+        this.ngZone.run(() => {
+            this.taskManager.waitAll(rota.entregas, this.mapService.resolveEntrega.bind(this.mapService)).subscribe(
+                batchResult => {
+                    this.ngZone.run(() => {
+                        for (let idx in batchResult) {
+                            var res: any = batchResult[idx];
+                            var ponto = this.pontoFactory.create(Number(idx), rota.entregas[idx], res)
+                            this.mapaPontos.push(ponto)
+                        }
+                    });
+                },
+                error => console.log(error),
+                () => console.log('Enderecos loaded')
+            );
+        }
+        );
     }
 
-    onSelect({ selected }) {
-        console.log('Select Event', selected, this.selected);
+    onSelectRoute({ selectedRoute }) {
+        console.log('Selected Route', selectedRoute, this.selectedRoute);
+        this.loadEntregas(this.selectedRoute[0]);
     }
 }
 

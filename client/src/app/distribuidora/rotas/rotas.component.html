@@ -8,14 +8,14 @@
         </div>
         <div class="card-content table-responsive">
           <ngx-datatable class="material" [rows]="this.rotas" [loadingIndicator]="loading" [columnMode]="'flex'" [headerHeight]="30"
-            [footerHeight]="50" [rowHeight]="52" [limit]="5" [messages]='messages' [selected]="selected" [selectionType]="'single'"
-            (select)='onSelect($event)'>
+            [footerHeight]="50" [rowHeight]="52" [limit]="5" [messages]='messages' [selected]="selectedRoute" [selectionType]="'single'"
+            (select)='onSelectRoute($event)'>
             <ngx-datatable-column name="dataInicio" [flexGrow]="1">
               <ng-template let-column="column" ngx-datatable-header-template>
                 <span class="text-primary">Data</span>
               </ng-template>
               <ng-template let-value="value" ngx-datatable-cell-template>
-                {{value}}
+                {{value | amCalendar}}
               </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="descricao" [flexGrow]="3">
@@ -55,7 +55,6 @@
                 <span class="text-primary">Ações</span>
               </ng-template>
               <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                <!--<span class="td-actions text-right">-->
                 <button type="button" rel="tooltip" title="Trocar Operador" style="margin: 0" class="btn btn-primary btn-simple btn-xs">
                                             <i class="material-icons">assignment_ind</i>
                                         </button>
@@ -68,7 +67,6 @@
                 <button type="button" rel="tooltip" title="Excluir" style="margin: 0" class="btn btn-danger btn-simple btn-xs">
                                             <i class="material-icons">delete</i>
                                         </button>
-                <!--</span>-->
               </ng-template>
             </ngx-datatable-column>
 
@@ -77,7 +75,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="this.isRouteSelected">
       <div class="card">
         <div class="card card-nav-tabs">
           <div class="card-header" data-background-color="primary">
@@ -104,68 +102,58 @@
             <div class="tab-content">
               <div class="tab-pane" id="entregaDetails">
                 <div class="row">
-
-
                 </div>
               </div>
               <div class="tab-pane active" id="tracking">
                 <div class="row">
                   <div class="col-md-4">
-                    <table class="table table-hover">
-                      <thead class="text-primary">
-                        <tr>
-                          <th></th>
-                          <th>Data</th>
-                          <th>Destino</th>
-                          <th>Estatus</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <a href="#profile">
-                              <div style="content:url('http://maps.google.com/mapfiles/kml/paddle/A.png');width: 35px;"> </div>
-                            </a>
-                          </td>
-                          <td>19/04/2017</td>
-                          <td>ATACADÃO DISTR COM E IND LTDA</td>
-                          <td>Done</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <a href="#profile">
-                              <div style="content:url('http://maps.google.com/mapfiles/kml/paddle/B.png');width: 35px;"> </div>
-                            </a>
-                          </td>
-                          <td>19/04/2017</td>
-                          <td>ATACADÃO DISTR COM E IND LTDA</td>
-                          <td>Done</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <a href="#profile">
-                              <div style="content:url('http://maps.google.com/mapfiles/kml/paddle/C.png');width: 35px;"> </div>
-                            </a>
-                          </td>
-                          <td>19/04/2017</td>
-                          <td>ATACADÃO DISTR COM E IND LTDA</td>
-                          <td>Done</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <ngx-datatable class="material" [rows]="this.mapaPontos" [loadingIndicator]="loading" [columnMode]="'flex'" [headerHeight]="30"
+                      [footerHeight]="50" [rowHeight]="52" [limit]="5" [messages]='messages'>
+                      <ngx-datatable-column name="iconStyle" [flexGrow]="0">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                          <span class="text-primary"></span>
+                        </ng-template>
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                          <div [ngStyle]="value" style="margin-top: -6px;">
+                          </div>
+                        </ng-template>
+                      </ngx-datatable-column>
+                      <ngx-datatable-column name="content" [flexGrow]="1">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                          <span class="text-primary">Data</span>
+                        </ng-template>
+                        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                          {{value.lastUpdated | amCalendar}}
+                        </ng-template>
+                      </ngx-datatable-column>
+                      <ngx-datatable-column name="content" [flexGrow]="2">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                          <span class="text-primary">Destino</span>
+                        </ng-template>
+                        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                          {{value.name | titlecase}}
+                        </ng-template>
+                      </ngx-datatable-column>
+
+                      <ngx-datatable-column name="content" [flexGrow]="1">
+                        <ng-template let-column="column" ngx-datatable-header-template>
+                          <span class="text-primary">Estatus</span>
+                        </ng-template>
+                        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                          {{value.contentStatus | titlecase}}
+                        </ng-template>
+                      </ngx-datatable-column>
+
+                    </ngx-datatable>
                   </div>
                   <div class="col-md-8">
-                    <mapa-cmp class="map-container card" style="min-height:600px;margin:0" [pontos]="mapaPontos" (mapLoaded)="loadRota()"></mapa-cmp>
+                    <mapa-cmp class="map-container card" style="min-height:600px;margin:0" [pontos]="mapaPontos"></mapa-cmp>
                   </div>
-
                 </div>
               </div>
-
-
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
