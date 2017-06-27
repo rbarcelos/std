@@ -107,9 +107,9 @@
               <div class="tab-pane active" id="tracking">
                 <div class="row">
                   <div class="col-md-4">
-                    <ngx-datatable class="material" [rows]="this.mapaPontos" [loadingIndicator]="loading" [columnMode]="'flex'" [headerHeight]="30"
+                    <ngx-datatable class="material" [rows]="this.mapaPontos" [loadingIndicator]="loading" [columnMode]="'force'" [headerHeight]="30"
                       [footerHeight]="50" [rowHeight]="52" [limit]="5" [messages]='messages'>
-                      <ngx-datatable-column name="iconStyle" [flexGrow]="0">
+                      <ngx-datatable-column name="iconStyle" [width]="15">
                         <ng-template let-column="column" ngx-datatable-header-template>
                           <span class="text-primary"></span>
                         </ng-template>
@@ -118,7 +118,7 @@
                           </div>
                         </ng-template>
                       </ngx-datatable-column>
-                      <ngx-datatable-column name="content" [flexGrow]="1">
+                      <ngx-datatable-column name="content" [width]="50">
                         <ng-template let-column="column" ngx-datatable-header-template>
                           <span class="text-primary">Data</span>
                         </ng-template>
@@ -126,16 +126,16 @@
                           {{value.lastUpdated | amCalendar}}
                         </ng-template>
                       </ngx-datatable-column>
-                      <ngx-datatable-column name="content" [flexGrow]="2">
+                      <ngx-datatable-column name="content" [width]="100">
                         <ng-template let-column="column" ngx-datatable-header-template>
                           <span class="text-primary">Destino</span>
                         </ng-template>
                         <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
-                          {{value.name | titlecase}}
+                          {{value.name | uppercase}}
                         </ng-template>
                       </ngx-datatable-column>
 
-                      <ngx-datatable-column name="content" [flexGrow]="1">
+                      <ngx-datatable-column name="content" [width]="50">
                         <ng-template let-column="column" ngx-datatable-header-template>
                           <span class="text-primary">Estatus</span>
                         </ng-template>
@@ -147,7 +147,8 @@
                     </ngx-datatable>
                   </div>
                   <div class="col-md-8">
-                    <mapa-cmp class="map-container card" style="min-height:600px;margin:0" [pontos]="mapaPontos"></mapa-cmp>
+                    <mapa-cmp class="map-container card" style="min-height:600px;margin:0" [pontos]="mapaPontos" (mapLoaded)="mapLoaded()"></mapa-cmp>
+
                   </div>
                 </div>
               </div>
