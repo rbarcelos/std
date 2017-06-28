@@ -5,8 +5,6 @@ import { Entrega } from './entrega';
 export class Rota {
 
     public id: string;
-
-    @Type(() => Date)
     public dataInicio: Date;
 
     public estatus: string;
@@ -17,6 +15,5 @@ export class Rota {
 
     public emissor: Contato;
 
-    @Type(() => Date)
     public entregas: Entrega[];
 }

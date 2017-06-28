@@ -1,6 +1,5 @@
 import { EmpresaType } from "./empresa-type.enum";
 import { Contato } from "./contato";
-import { Exclude } from "class-transformer";
 
 export class Empresa {
 

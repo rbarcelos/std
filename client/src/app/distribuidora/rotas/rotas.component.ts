@@ -15,7 +15,6 @@ import { CalendarPipe } from 'angular2-moment';
 @Component({
     selector: 'rotas-cmp',
     templateUrl: './rotas.component.html',
-    styleUrls: ['./rotas.component.css'],
     providers: [DataService, MapService, TaskManagerService],
     //    directives : [MapaComponent]
 })
@@ -33,7 +32,10 @@ export class RotasComponent implements OnInit {
 
 
     loading: boolean = true;
+    mapaLoaded: boolean = false;
     selectedRoute = [];
+    selectedEntrega = [];
+    selectedPonto: PontoMapa;
     rotas: Array<Rota> = [];
     mapaPontos: Array<PontoMapa> = [];
     pontoFactory: PontoMapaFactory = new PontoMapaFactory();
@@ -56,23 +58,23 @@ export class RotasComponent implements OnInit {
     }
 
     get isRouteSelected(): boolean {
-        return this.mapaPontos != null && this.mapaPontos.length > 0;
+        return this.selectedRoute != null && this.selectedRoute.length > 0;
     }
 
     loadRota() {
         this.dataService.retrieveRotas().subscribe(
             result => {
-                this.rotas.push(result);
-                this.rotas.push(result);
-                this.rotas.push(result);
-                this.rotas.push(result);
-                this.rotas.push(result);
-                this.rotas.push(result);
-                this.rotas.push(result);
-                this.rotas.push(result);
+                this.rotas = result;
                 this.loading = false;
             }
         );
+    }
+
+    mapLoaded() {
+        if (!this.mapaLoaded) {
+            this.loadEntregas(this.selectedRoute[0]);
+            this.mapaLoaded = true;
+        }
     }
 
     loadEntregas(rota: Rota) {
@@ -96,9 +98,22 @@ export class RotasComponent implements OnInit {
         );
     }
 
-    onSelectRoute({ selectedRoute }) {
-        console.log('Selected Route', selectedRoute, this.selectedRoute);
-        this.loadEntregas(this.selectedRoute[0]);
+    onSelectRoute({ selected }) {
+        console.log('Selected Route', this.selectedRoute);
+        if (this.mapaLoaded) {
+            this.loadEntregas(this.selectedRoute[0]);
+        }
+    }
+
+    onSelectEntrega({ selected }) {
+        this.selectedPonto = selected[0];
+    }
+
+    pontoClicked(clicked) {
+        this.selectedEntrega = [];
+        if (clicked != null) {
+            this.selectedEntrega.push(clicked);
+        }
     }
 }
 

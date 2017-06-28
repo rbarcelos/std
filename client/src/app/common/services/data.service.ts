@@ -15,9 +15,10 @@ export class DataService {
 
     constructor(private http: Http) { }
 
-    public retrieveRotas(): Observable<Rota> {
+    public retrieveRotas(): Observable<Rota[]> {
         return this.http.get("assets/data/rotas.json")
-            .map(this.extractData)
+            .map(res => res.json())
+            .map(res => plainToClass(Rota, res as Object[]))
             .catch(this.handleError);
     }
 
@@ -30,11 +31,6 @@ export class DataService {
         }
 
         return this.cachedEmpresas;
-    }
-
-    private extractData(res: Response) {
-        let body = res.json();
-        return body || null;
     }
 
     private handleError(error: any) {

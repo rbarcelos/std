@@ -1,9 +1,9 @@
-import { Component, OnInit, NgZone, Input, Output, EventEmitter, DoCheck, IterableDiffers,IterableDiffer } from '@angular/core';
+import { Component, OnInit, NgZone, Input, Output, EventEmitter, DoCheck, IterableDiffers, IterableDiffer, ViewChild } from '@angular/core';
 import { DataService } from '../../common/services/data.service';
 import { MapService } from '../../common/services/map.service';
 import { TaskManagerService } from '../../common/services/task-manager.service';
 import { PontoMapa } from './ponto-mapa';
-import { GoogleMapsAPIWrapper ,MapsAPILoader} from '@agm/core';
+import { GoogleMapsAPIWrapper, MapsAPILoader, AgmMap } from '@agm/core';
 import { Observable, Observer } from 'rxjs';
 
 declare var google: any;
@@ -15,67 +15,68 @@ declare var google: any;
     providers: [DataService, MapService, TaskManagerService]
 })
 export class MapaComponent implements OnInit, DoCheck {
-    @Input('pontos') mapaPontos:Array<PontoMapa>;
-    @Output("mapLoaded") mapLoadedEvent: EventEmitter<any> = new EventEmitter();
+    @Input("Pontos") mapaPontos: Array<PontoMapa>;
+    @Input("SelectedPonto") selectedPonto: PontoMapa;
+    @Output("OnMapLoaded") mapLoadedEvent: EventEmitter<any> = new EventEmitter();
+    @Output("OnPontoClicked") pontoClickedEvent = new EventEmitter<PontoMapa>();
 
-    isMapLoaded:boolean;
-    differ:IterableDiffer<PontoMapa>;
-    
-    mapaBounds:any;
-    
-    constructor(private loader: MapsAPILoader, differs:IterableDiffers) { 
-        this.differ = differs.find([]).create(null);
+    isMapLoaded: boolean;
+    pontosDiffer: IterableDiffer<PontoMapa>;
+
+    mapaBounds: any;
+
+    constructor(private loader: MapsAPILoader, differs: IterableDiffers) {
+        this.pontosDiffer = differs.find([]).create(null);
     }
 
     ngOnInit() {
-        this.loadMap().subscribe(() => 
-        {
+        this.loadMap().subscribe(() => {
             this.mapaBounds = new google.maps.LatLngBounds();
             this.mapLoadedEvent.emit();
         });
     }
-    
+
     ngDoCheck() {
-        const changes = this.differ.diff(this.mapaPontos);
-        if (changes) {
+        const pontosChanges = this.pontosDiffer.diff(this.mapaPontos);
+        if (pontosChanges) {
             let newBound = new google.maps.LatLngBounds();
             console.log('new change');// for splitting up changes
-            changes.forEachAddedItem(r => {
+            pontosChanges.forEachAddedItem(r => {
                 console.log('added ', r);
                 newBound.extend(new google.maps.LatLng(r.item.lat, r.item.long));
             });
-            changes.forEachRemovedItem(r => console.log('removed ', r))
-            changes.forEachMovedItem(r => console.log('moved ', r))
+            pontosChanges.forEachRemovedItem(r => console.log('removed ', r))
+            pontosChanges.forEachMovedItem(r => console.log('moved ', r))
             this.mapaBounds = newBound;
         }
     }
-    
-    clickedMarker($event)
-    {
-        console.log($event);
+
+    clickedMarker(clickedPonto: PontoMapa) {
+        this.pontoClickedEvent.emit(clickedPonto);
     }
-        
-    private loadMap()
-    {
-        return Observable.create(observer => 
-        {
-            if(this.isMapLoaded)
-            {
+
+    markerDismissed() {
+        this.selectedPonto = null;
+        this.pontoClickedEvent.emit(null);
+    }
+
+    private loadMap() {
+        return Observable.create(observer => {
+            if (this.isMapLoaded) {
                 observer.next({});
                 observer.complete();
                 console.log('Map already loaded');
             }
-            else
-            {
+            else {
                 console.log('Loading Map');
                 this.loader.load().then(
                     () => {
-                            this.isMapLoaded = true;
-                            observer.next({});
-                            observer.complete();
-                            console.log('Map loaded');
+                        this.isMapLoaded = true;
+                        observer.next({});
+                        observer.complete();
+                        console.log('Map loaded');
                     });
-            }   
+            }
         });
     }
 }

@@ -1,7 +1,9 @@
-<agm-map *ngIf="mapaPontos" class="map-container" [scrollwheel]="false" [streetViewControl]="false" [fitBounds]="mapaBounds">
+<agm-map #gm *ngIf="mapaPontos" class="map-container" [scrollwheel]="false" [streetViewControl]="false" [fitBounds]="mapaBounds">
   <agm-marker *ngFor="let pt of mapaPontos; let i = index" [latitude]="pt.lat" [longitude]="pt.long" [iconUrl]="pt.iconUrl"
-    (markerClick)="clickedMarker($event)">
-    <agm-info-window [disableAutoPan]="true">
+    (markerClick)="clickedMarker(pt);">
+    <!--(markerClick)=" gm.lastOpen?.close(); gm.lastOpen = infoWindow;clickedMarker(pt);">-->
+
+    <agm-info-window #infoWindow [disableAutoPan]="true" (infoWindowClose)="markerDismissed()">
       <info-window-content [model]="pt.content"></info-window-content>
     </agm-info-window>
   </agm-marker>

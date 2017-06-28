@@ -6,7 +6,6 @@ export class Profile {
 
     public email: string;
 
-    @Type(() => Empresa)
     public empresa: Empresa;
 
     public locale: string;
