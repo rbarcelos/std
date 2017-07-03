@@ -106,15 +106,10 @@ export class RotasComponent implements OnInit {
     }
 
     onSelectEntrega({ selected }) {
-        this.selectedPonto = selected[0];
+        selected[0].isOpen = !selected[0].isOpen;
     }
 
-    pontoClicked(clicked) {
-        this.selectedEntrega = [];
-        if (clicked != null) {
-            this.selectedEntrega.push(clicked);
-        }
-    }
+
 }
 
 

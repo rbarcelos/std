@@ -21,6 +21,8 @@ import { StdCommonModule } from "../common/common.module";
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
+import { MaterialModule } from '@angular/material';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     WizardModule,
     StdCommonModule,
     RouterModule.forChild(DISTRIBUIDORA_ROUTES),
-    NgxDatatableModule
+    NgxDatatableModule,
+    MaterialModule
   ],
   declarations: [RotasComponent, MapaComponent, InfoWindowContentComponent, DISTRIBUIDORA_COMPONENTS, NfeCardComponent, CadastroComponent, DistribuidoraComponent],
   exports: [RotasComponent, DistribuidoraComponent],

@@ -8,4 +8,5 @@ export class PontoMapa {
     public content: PontoMapaContent;
     public iconUrl: string;
     public iconStyle: any;
+    public isOpen: boolean;
 }

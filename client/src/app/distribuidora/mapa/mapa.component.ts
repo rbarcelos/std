@@ -16,9 +16,7 @@ declare var google: any;
 })
 export class MapaComponent implements OnInit, DoCheck {
     @Input("Pontos") mapaPontos: Array<PontoMapa>;
-    @Input("SelectedPonto") selectedPonto: PontoMapa;
     @Output("OnMapLoaded") mapLoadedEvent: EventEmitter<any> = new EventEmitter();
-    @Output("OnPontoClicked") pontoClickedEvent = new EventEmitter<PontoMapa>();
 
     isMapLoaded: boolean;
     pontosDiffer: IterableDiffer<PontoMapa>;
@@ -51,14 +49,14 @@ export class MapaComponent implements OnInit, DoCheck {
         }
     }
 
-    clickedMarker(clickedPonto: PontoMapa) {
-        this.pontoClickedEvent.emit(clickedPonto);
-    }
+    // clickedMarker(clickedPonto: PontoMapa) {
+    //     this.pontoClickedEvent.emit(clickedPonto);
+    // }
 
-    markerDismissed() {
-        this.selectedPonto = null;
-        this.pontoClickedEvent.emit(null);
-    }
+    // markerDismissed() {
+    //     this.selectedPonto = null;
+    //     this.pontoClickedEvent.emit(null);
+    // }
 
     private loadMap() {
         return Observable.create(observer => {
