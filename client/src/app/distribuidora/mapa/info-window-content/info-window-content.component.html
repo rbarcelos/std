@@ -1,82 +1,24 @@
-<!--<div>
-    
-    <table>
-        <tr>
-            <td>Endereco:</td>
-            <td>{{model.endereco}}</td>
-        </tr>
-        <tr>
-            <li *ngFor="let st of model.statusBar;">
-                <td>{{st.iconName}}</td>
-                <td>{{st.description}}</td>
-            </li>
-            <td>{{model.contentStatus}}</td>
-        </tr>
-    </table>
-
-    {{model.lastUpdated | amTimeAgo}}
-</div>-->
-
-<!--<div id="iw-container">
-  <div class="iw-title">{{model.name | uppercase}}</div>
-  <div class="iw-content">
-    <div class="iw-subTitle">Endereco</div>
-    <p>{{model.endereco}}</p>
-    <div class="iw-subTitle">Estatus</div>
-    <table>
-      <tr>
-        <li *ngFor="let st of model.statusBar;">
-          <td>{{st.iconName}}</td>
-          <td>{{st.description}}</td>
-        </li>
-        <td>{{model.contentStatus}}</td>
-      </tr>
-    </table>
-  </div>
-  {{model.lastUpdated | amTimeAgo}}
-</div>-->
-
-<!--<div class="card">
-  <div class="card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer
-      content than the first to show that equal height action.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-  </div>
-</div>-->
-
-<!--<md-card class="example-card">
-  <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>Shiba Inu</md-card-title>
-    <md-card-subtitle>Dog Breed</md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
-      very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-    </p>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button>LIKE</button>
-    <button md-button>SHARE</button>
-  </md-card-actions>
-</md-card>-->
 <div class="card-deck-wrapper">
-  <div class="card-deck">
-    <div class="card card-inverse card-primary text-xs-center" style="    width: 98%;
-    margin: 2px;">
+  <div class="card-deck" style="margin-top: 20px;">
+    <div class="card card-inverse card-primary text-xs-center " style="width: 98%; margin: 2px;">
       <!--http://rosskevin.github.io/bootstrap-material-design/components/card/-->
-      <!--<div class="card-header">
-    Featured
-  </div>-->
-      <div class="card-block" style="padding-left:5px">
-        <h4 class="card-title">Special title treatment</h4>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div class="card-header" data-background-color="primary" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+        {{model.name | uppercase}}
       </div>
-      <div class="card-footer text-muted">
-        2 days ago
+      <div class="card-block" style="padding-left:5px">
+        <h6 class="card-title">Endereço</h6>
+        <p class="card-text">{{model.endereco}}</p>
+      </div>
+      <div class="card-block" style="padding-left:5px">
+        <h6 class="card-title">Estatus</h6>
+        <div *ngFor="let st of model.statusBar;">
+          <div class="stats"><i class="material-icons">{{st.iconName}}</i> - {{st.description}}</div>
+        </div>
+      </div>
+      <div class="card-footer" style="padding-bottom: 25px; padding-top: 8px;">
+        <div class="stats pull-right">
+          <i class="material-icons">update</i> {{model.lastUpdated | amTimeAgo}}
+        </div>
       </div>
     </div>
   </div>

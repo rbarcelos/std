@@ -26,7 +26,9 @@ export class PontoMapaFactory {
         content.lastUpdated = new Date(entrega.data);
         content.contentStatus = entrega.estatus;
         content.statusBar = [];
-        content.statusBar.push({ iconName: "receipt", description: entrega.notas.length.toString() })
+        for (var nota of entrega.notas) {
+            content.statusBar.push({ iconName: "receipt", description: "$" + nota.valor })
+        }
         return content;
     }
 
