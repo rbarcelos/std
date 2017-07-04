@@ -10,10 +10,12 @@
         <p class="card-text">{{model.endereco}}</p>
       </div>
       <div class="card-block" style="padding-left:5px">
-        <h6 class="card-title">Estatus</h6>
-        <div *ngFor="let st of model.statusBar;">
-          <div class="stats"><i class="material-icons">{{st.iconName}}</i> - {{st.description}}</div>
-        </div>
+        <h6 class="card-title">Notas Ficais</h6>
+        <swiper [config]="this.swiperConfig" style="width:100px">
+          <div *ngFor="let st of model.statusBar" class="swiper-slide" fxLayout="column" fxLayoutAlign="center center">
+            <i class="material-icons">{{st.iconName}}</i> - {{st.description}}
+          </div>
+        </swiper>
       </div>
       <div class="card-footer" style="padding-bottom: 25px; padding-top: 8px;">
         <div class="stats pull-right">

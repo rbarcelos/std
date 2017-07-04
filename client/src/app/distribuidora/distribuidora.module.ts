@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { DISTRIBUIDORA_COMPONENTS, DISTRIBUIDORA_ROUTES } from './distribuidora.routes';
 
+import { SwiperModule } from 'ngx-swiper-wrapper';
+
 
 import { RotasComponent } from './rotas/rotas.component';
 import { AgmCoreModule } from '@agm/core';
@@ -32,7 +34,9 @@ import { MaterialModule } from '@angular/material';
     StdCommonModule,
     RouterModule.forChild(DISTRIBUIDORA_ROUTES),
     NgxDatatableModule,
-    MaterialModule
+    MaterialModule,
+    SwiperModule
+
   ],
   declarations: [RotasComponent, MapaComponent, InfoWindowContentComponent, DISTRIBUIDORA_COMPONENTS, NfeCardComponent, CadastroComponent, DistribuidoraComponent],
   exports: [RotasComponent, DistribuidoraComponent],
